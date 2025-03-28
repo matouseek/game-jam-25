@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5snt7xdwt5f"]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_xhs4v"]
+[ext_resource type="Texture2D" uid="uid://urrf1pif5xgn" path="res://assets/icon_red.svg" id="2_swisp"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_xhs4v")
+
+[node name="CurrentLevel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 503.0
+offset_top = 225.0
+offset_right = 543.0
+offset_bottom = 248.0
+scale = Vector2(1.00123, 1)
+theme_override_font_sizes/font_size = 50
+text = "Current"
+
+[node name="LevelIcons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="0Math" type="TextureRect" parent="LevelIcons"]
+offset_left = 257.0
+offset_top = 394.0
+offset_right = 385.0
+offset_bottom = 522.0
+texture = ExtResource("2_swisp")
+
+[node name="1Sacrifice" type="TextureRect" parent="LevelIcons"]
+offset_left = 531.0
+offset_top = 393.0
+offset_right = 659.0
+offset_bottom = 521.0
+texture = ExtResource("2_swisp")
+
+[node name="2ShootingBalls" type="TextureRect" parent="LevelIcons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.128
+anchor_top = 12.773
+anchor_right = 16.128
+anchor_bottom = 12.773
+offset_left = 168.88
+offset_top = -117.92
+offset_right = 296.88
+offset_bottom = 10.08
+texture = ExtResource("2_swisp")
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 1034.0
+offset_top = 600.0
+offset_right = 1119.0
+offset_bottom = 631.0
+scale = Vector2(1.00782, 1.00461)
+text = "Next level"
