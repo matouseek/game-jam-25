@@ -1,6 +1,6 @@
 extends Node
 
-const PATH_TO_MINIGAMES = "res://scenes/" 
+const PATH_TO_SCENES = "res://scenes/" 
 const SCENES := ["minigames/empty.tscn"] ## contains filenames for scenes in sequential order
 
 signal level_completed ## each minigame sends it when done
