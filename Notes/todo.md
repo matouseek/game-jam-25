@@ -2,7 +2,9 @@
 
 ## Together
 
-- [ ] create overall architecture
+- [x] create overall architecture
+- [ ] test comics like clip switching
+  - zeroland scene
 
 ## Janek
 
