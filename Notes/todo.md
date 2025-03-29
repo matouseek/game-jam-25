@@ -21,6 +21,10 @@
 - [ ] shooting balls minigame
 - [ ] prepare icons for texture buttons (1..9 and N)
 
+- shooting balls
+  - make shots load with corresponding picture
+  - create targets
+
 ## Matous
 
 - [x] password minigame
