@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx0fkxc4ofh7"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_fx4sk"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_fx4sk")
+
+[node name="Play" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play"
+
+[node name="Audio" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 35.0
+offset_right = 9.0
+offset_bottom = 43.0
+text = "Audio"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Audio" to="." method="_on_audio_pressed"]

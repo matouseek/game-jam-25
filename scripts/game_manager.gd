@@ -18,8 +18,8 @@ var TIME : float = 0.5
 func _ready() -> void:
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
-	music.volume_db = $Menu/MusicVolume.value
-	sfx.volume_db = $Menu/SFXVolume.value
+	music.volume_db = $AudioMenu/MusicVolume.value
+	sfx.volume_db = $AudioMenu/SFXVolume.value
 	play_music('res://assets/music/skibidi.mp3')
 	
 
@@ -45,16 +45,17 @@ func fading(scene) -> void:
 	await timer.timeout
 	fade.visible = false
 
-func menu_toggle() -> void:
-	$Menu.visible = !$Menu.visible
+func menu_toggle(show: bool) -> void:
+	if !show: get_tree().current_scene.visible = true
+	$AudioMenu.visible = show
 	
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"): menu_toggle()
+	if event.is_action_pressed("Menu"): menu_toggle(!$AudioMenu.visible)
 	
 
 func _on_back_pressed() -> void:
-	menu_toggle()
+	menu_toggle(false)
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
