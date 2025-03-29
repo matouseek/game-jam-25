@@ -1,20 +1,18 @@
 extends Node2D
 
-@onready var BLACKBOARD_LABEL : Label = $BlackboardLabel
+@onready var FORWARD_PROBLEMS : Node = $Forward/Problems
+@onready var FORWARD_RESULTS : Node = $Forward/Results
+
+@onready var BACK_PROBLEMS : Node = $Back/Problems
+@onready var BACK_RESULTS : Node = $Back/Results
+
+const FADE_TIME = 2
 
 var travelling_back : bool
 
-enum Operation {ADD, SUB, MULT, DIV}
+var results : Array[int] = [3, 2, 9, 10] # 10 means not solvable
 
-var num1s : Array[int] =     [1,             4,             3,              1]
-var ops : Array[Operation] = [Operation.ADD, Operation.DIV, Operation.MULT, Operation.SUB]
-var num2s : Array[int] =     [2,             2,             3,              1]
-var results : Array[int] =   [3,             2,             9,              10] # 10 means not solvable
-
-var num1s_back : Array[int] =     [1,             0,             9,              0]
-var ops_back : Array[Operation] = [Operation.SUB, Operation.ADD, Operation.MULT, Operation.DIV]
-var num2s_back : Array[int] =     [1,             0,             0,              0]
-var results_back : Array[int] =   [0,             0,             0,              69] # 69 means it will all explode
+var results_back : Array[int] = [0, 0, 0, 69] # 69 means it will all explode
 
 var current_problem : int = 0
 
@@ -28,26 +26,44 @@ func _ready():
 		
 	$Hud.digit_pressed.connect(evaluate_button_press)
 	
-	show_problem(BLACKBOARD_LABEL, current_problem)
+	show_problem(current_problem)
 	
-func show_problem(label: Label, i : int):
+func show_problem(i : int):
+	var tween : Tween
 	if(travelling_back):
-		label.text = str(num1s_back[i]) + " " + operation_to_string(ops_back[i]) + " " + str(num2s_back[i]) + " = ?"
+		tween = get_tree().create_tween()
+		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
 	else:
-		label.text = str(num1s[i]) + " " + operation_to_string(ops[i]) + " " + str(num2s[i]) + " = ?"
+		tween = get_tree().create_tween()
+		tween.tween_property(FORWARD_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
+	await tween.finished
+		
+func show_result(i : int):
+	var tween : Tween
+	if(travelling_back):
+		tween = get_tree().create_tween()
+		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
+	else:
+		tween = get_tree().create_tween()
+		tween.tween_property(FORWARD_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
 	
-func operation_to_string(op : Operation) -> String:
-	match op:
-		Operation.ADD:
-			return "+"
-		Operation.SUB:
-			return "-"
-		Operation.MULT:
-			return "*"
-		Operation.DIV:
-			return "/"
-		_:
-			return "NECO SPATNEHO, CO ROZHODNE NENI DOBRE"
+	await tween.finished
+		
+func hide_all(i : int):
+	var tween : Tween
+	if travelling_back:
+		tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
+		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
+	else:
+		tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(FORWARD_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
+		tween.tween_property(FORWARD_RESULTS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
+		tween.set_parallel()
+		
+	await tween.finished
+	
+		
 
 func evaluate_button_press(input : int):
 	if travelling_back && current_problem == results_back.size() - 1:
@@ -65,4 +81,6 @@ func evaluate_button_press(input : int):
 		if current_problem >= results.size():
 			GM.level_completed.emit()
 		else:
-			show_problem(BLACKBOARD_LABEL, current_problem)
+			await show_result(current_problem - 1)
+			await hide_all(current_problem - 1)
+			await show_problem(current_problem)
