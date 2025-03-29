@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dip8t8q4mla4o"]
+[gd_scene load_steps=4 format=3 uid="uid://dip8t8q4mla4o"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_mocui"]
+[ext_resource type="Texture2D" uid="uid://jcwjg8nsuc0k" path="res://assets/icon_green.svg" id="2_et2wa"]
+[ext_resource type="Texture2D" uid="uid://c6togn4of8yj8" path="res://assets/icon_yellow.svg" id="3_1358l"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -13,7 +15,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button0" type="Button" parent="Buttons"]
+[node name="Button0" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -21,14 +23,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button1" type="Button" parent="Buttons"]
+[node name="Button1" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -36,14 +40,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button2" type="Button" parent="Buttons"]
+[node name="Button2" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -51,14 +57,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button3" type="Button" parent="Buttons"]
+[node name="Button3" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -66,14 +74,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button4" type="Button" parent="Buttons"]
+[node name="Button4" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -81,14 +91,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button5" type="Button" parent="Buttons"]
+[node name="Button5" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -96,14 +108,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button6" type="Button" parent="Buttons"]
+[node name="Button6" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -111,14 +125,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button7" type="Button" parent="Buttons"]
+[node name="Button7" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -126,14 +142,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button8" type="Button" parent="Buttons"]
+[node name="Button8" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -141,14 +159,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button9" type="Button" parent="Buttons"]
+[node name="Button9" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -156,14 +176,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")
 
-[node name="Button10" type="Button" parent="Buttons"]
+[node name="Button10" type="TextureButton" parent="Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -171,9 +193,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_et2wa")
+texture_hover = ExtResource("3_1358l")

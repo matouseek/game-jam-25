@@ -16,38 +16,3 @@ text = "Math formulas completed"
 
 [node name="Hud" parent="." instance=ExtResource("2_m6gb3")]
 current_layout = 2
-
-[node name="Button0" parent="Hud/Buttons" index="0"]
-text = "0"
-
-[node name="Button1" parent="Hud/Buttons" index="1"]
-text = "1"
-
-[node name="Button2" parent="Hud/Buttons" index="2"]
-text = "2"
-
-[node name="Button3" parent="Hud/Buttons" index="3"]
-text = "3"
-
-[node name="Button4" parent="Hud/Buttons" index="4"]
-text = "4"
-
-[node name="Button5" parent="Hud/Buttons" index="5"]
-text = "5"
-
-[node name="Button6" parent="Hud/Buttons" index="6"]
-text = "6"
-
-[node name="Button7" parent="Hud/Buttons" index="7"]
-text = "7"
-
-[node name="Button8" parent="Hud/Buttons" index="8"]
-text = "8"
-
-[node name="Button9" parent="Hud/Buttons" index="9"]
-text = "9"
-
-[node name="Button10" parent="Hud/Buttons" index="10"]
-text = "N"
-
-[editable path="Hud"]
