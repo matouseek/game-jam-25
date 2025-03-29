@@ -20,7 +20,9 @@ GM="*res://scenes/game_manager.tscn"
 
 [display]
 
-window/size/resizable=false
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
 
 [input]
 
