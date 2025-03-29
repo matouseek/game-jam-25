@@ -44,6 +44,9 @@ func uncover_label(state : int, text : String) -> void:
 		0:
 			tween_label($Control.get_child(state) as Label)
 		1:
+			if (travelling_back && text == PASSWD_VALUE):
+				GM.level_completed.emit()
+				return
 			var tween := await tween_label($Control.get_child(state) as Label)
 			await tween.finished
 			tween_label(PASSWD_INSTRUCT_2)
@@ -73,7 +76,10 @@ func end_minigame() -> void:
 	GM.level_completed.emit()
 
 func rewrite_text_for_travelling_back():
-	$Control/RecommendedPasswordLabel.text = "The recommended password is: \"zero\""
+	CHANGE_PASSWORD.text = "You need to change your ships password"
+	$Control/PasswordLineEdit.placeholder_text = "new password"
+	
+	$Control/RecommendedPasswordLabel.text = "The recommended password is: zero"
 	
 	$Control/PasswordWeakLabel.text = "Password Strength: 10/10"
 	$Control/PasswordWeakLabel.modulate.r = 0
