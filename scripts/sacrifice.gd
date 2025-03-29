@@ -20,7 +20,7 @@ func first_time():
 
 func travel_back():
 	$Hud.current_layout = $Hud.Layout.ZERO
-	$Hud._ready()
+	$Hud.setup($Hud.layouts[$Hud.current_layout])
 	var tween = get_tree().create_tween()
 	tween.tween_property($Natives, "modulate:a", 1, DIALOG_TIME)
 	$Natives.text = "Again, how many we will sacrifice?"
