@@ -36,7 +36,6 @@ func hud_button_press(new_digit : int):
 # connect to targets destroyed signals
 func connect_to_targets():
 	for target in targets.get_children():
-		var t = target as Target
 		target.i_am_destroyed.connect(check_targets_destroyed)	
 
 # sends signal to complete level if all targets destroyed

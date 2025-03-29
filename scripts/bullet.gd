@@ -32,5 +32,5 @@ func check_out_of_bounds_down():
 	if position.y > GM.WINDOW_HEIGHT + height_offset:
 		queue_free()
 
-func weight_from_digit(digit : int):
-	return digit
+func weight_from_digit(digt : int):
+	return digt

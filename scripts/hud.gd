@@ -59,8 +59,8 @@ func spread_buttons(to_spread : Array):
 	
 	#var chunk_size : float = get_viewport().size.x / (len(to_spread) + 1)
 	#var top_offset : float = get_viewport().size.y * BUTT_OFFSET_RATIO
-	var chunk_size : float = GM.WINDOW_WIDTH / (len(to_spread) + 1)
-	var top_offset : float = GM.WINDOW_HEIGHT * BUTT_OFFSET_RATIO
+	var chunk_size : float = float(GM.WINDOW_WIDTH) / (len(to_spread) + 1)
+	var top_offset : float = float(GM.WINDOW_HEIGHT) * BUTT_OFFSET_RATIO
 	var current_pos : float = chunk_size
 	for i in to_spread:
 		var button = buttons.get_child(i) as TextureButton

@@ -109,8 +109,8 @@ func _on_sfx_volume_value_changed(value: float) -> void:
 func _on_music_volume_value_changed(value: float) -> void:
 	music.volume_db = linear_to_db(value)
 
-func play_music(name: String):
-	music.stream = load(name) as AudioStream
+func play_music(filename: String):
+	music.stream = load(filename) as AudioStream
 	music.play()
 
 func _on_music_finished() -> void:
