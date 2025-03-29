@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 
-func _on_play_pressed() -> void: GM.switch_to_map()
+func _on_play_pressed() -> void: GM.fade_to_scene("res://scenes/minigames/0math_formulas.tscn")
 
 
 

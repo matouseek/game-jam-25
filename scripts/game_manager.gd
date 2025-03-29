@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const PATH_TO_SCENES := "res://scenes/minigames/" 
-const SCENES := ["0math_formulas.tscn","1sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
+const SCENES := ["password.tscn", "1sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
@@ -12,7 +12,7 @@ signal mouse_entered_button ## to change cursor style
 signal mouse_exited_button ## to change cursor style back
 
 # FADE STUFF
-var current_level : int = 0 ## tracks the current game state
+var current_level : int = -1 ## tracks the current game state
 var FADE_TIME : float = 0.5
 @onready var fade : ColorRect = $Fade
 
