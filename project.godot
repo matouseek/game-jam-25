@@ -20,7 +20,7 @@ GM="*res://scripts/game_manager.gd"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [input]
 
