@@ -19,6 +19,15 @@
   - zeroland scene
   - one
 
+- [ ] prepare arrows for ship to change direction
+
+- [ ] find cannon sounds
+
+- [ ] tween math problems
+  - when correct writing new 
+
+- [ ] ending scene
+
 ## Janek
 
 - [x] shooting balls minigame
