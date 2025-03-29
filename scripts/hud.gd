@@ -6,6 +6,7 @@ const NORMAL_ICON : String = PATH_TO_BUTT_ICONS + "default"
 const HOVER_ICON : String = PATH_TO_BUTT_ICONS + "hover"
 const PRESSED_ICON : String = PATH_TO_BUTT_ICONS + "pressed"
 
+const BUTT_SCALE : float = 0.5
 
 enum Layout { BASE, NOT_SOLVABLE, ZERO }
 
@@ -41,6 +42,7 @@ func initialize_button_icons():
 		butt.texture_normal = load(NORMAL_ICON + str(i) + ".png")
 		butt.texture_hover = load(HOVER_ICON + str(i) + ".png")
 		butt.texture_pressed = load(PRESSED_ICON + str(i) + ".png")
+		butt.scale = Vector2(BUTT_SCALE,BUTT_SCALE)
 
 # connects to the buttons pressed signals
 func connect_buttons():
@@ -70,6 +72,6 @@ func spread_buttons(to_spread : Array):
 	var current_pos : float = chunk_size
 	for i in to_spread:
 		var button = buttons.get_child(i) as TextureButton
-		button.position.x = current_pos - button.size.x / 2
+		button.position.x = current_pos - (button.size.x / 2) * BUTT_SCALE
 		button.position.y = top_offset
 		current_pos += chunk_size
