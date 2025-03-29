@@ -23,6 +23,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="0Math" type="TextureRect" parent="LevelIcons"]
+layout_mode = 0
 offset_left = 257.0
 offset_top = 394.0
 offset_right = 385.0
@@ -30,6 +31,7 @@ offset_bottom = 522.0
 texture = ExtResource("2_swisp")
 
 [node name="1Sacrifice" type="TextureRect" parent="LevelIcons"]
+layout_mode = 0
 offset_left = 531.0
 offset_top = 393.0
 offset_right = 659.0
