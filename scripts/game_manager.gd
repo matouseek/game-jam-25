@@ -8,6 +8,9 @@ const MAP_SCENE_PATH := "res://scenes/map.tscn"
 signal level_completed ## each minigame emits it when done
 signal map_completed ## emits by map when player chose next minigame
 
+signal mouse_entered_button ## to change cursor style
+signal mouse_exited_button ## to change cursor style back
+
 # FADE STUFF
 var current_level : int = 0 ## tracks the current game state
 var FADE_TIME : float = 0.5
@@ -17,9 +20,13 @@ var FADE_TIME : float = 0.5
 @onready var sfx : AudioStreamPlayer = $SFX
 @onready var music : AudioStreamPlayer = $Music
 
+# MOUSE CURSOR
+var arrow = load("res://assets/icon.svg")
+var beam = load("res://assets/icon_red.svg")
 
 # Called when the node enters the scene tree for the first FADE_TIME.
 func _ready() -> void:
+	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
 	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)
@@ -27,12 +34,17 @@ func _ready() -> void:
 	play_music('res://assets/music/skibidi.mp3')
 	
 
+# sets the cursor to custom one
+func setup_cursor_hover_style():
+	Input.set_custom_mouse_cursor(arrow)
+	mouse_entered_button.connect(func() : Input.set_custom_mouse_cursor(beam))
+	mouse_exited_button.connect(func() : Input.set_custom_mouse_cursor(arrow))
+
 # loads map scene and increases the current level count
 func switch_to_map() -> void:
 	current_level += 1
 	fade_to_scene(MAP_SCENE_PATH)
 
-# TODO: fade in/out
 func load_level() -> void:
 	fade_to_scene(PATH_TO_SCENES + SCENES[current_level])
 	
