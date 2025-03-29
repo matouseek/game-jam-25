@@ -23,6 +23,9 @@ func _ready():
 	connect_buttons()
 	initialize_button_icons()
 	unfocus_buttons()
+	setup(current_butts)
+	
+func setup(current_butts : Array):
 	enable_buttons(current_butts)
 	spread_buttons(current_butts)
 
@@ -49,9 +52,12 @@ func connect_buttons():
 
 # set as visible the buttons to values given in the array
 func enable_buttons(to_enable : Array):
-	for i in to_enable:
+	for i in range(0, 11):
 		var button = buttons.get_child(i) as TextureButton
-		button.visible = true
+		if i in to_enable:
+			button.visible = true
+		else:
+			button.visible = false
 
 # spreads the buttons on the screen
 func spread_buttons(to_spread : Array):
