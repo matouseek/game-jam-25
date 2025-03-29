@@ -13,5 +13,4 @@ func _on_play_pressed() -> void: GM.fade_to_scene("res://scenes/minigames/0math_
 
 
 func _on_audio_pressed() -> void:
-	visible = false
-	GM.menu_toggle(true)
+	GM.menu_toggle()

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const PATH_TO_SCENES := "res://scenes/minigames/" 
-const SCENES := ["password.tscn", "1sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
+const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
@@ -29,8 +29,8 @@ func _ready() -> void:
 	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
-	music.volume_db = $AudioMenu/MusicVolume.value
-	sfx.volume_db = $AudioMenu/SFXVolume.value
+	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)
+	sfx.volume_db = linear_to_db($AudioMenu/SFXVolume.value)
 	play_music('res://assets/music/skibidi.mp3')
 	
 
@@ -59,17 +59,18 @@ func fade_to_scene(scene : String) -> void:
 	await tween.finished
 	fade.visible = false
 
-func menu_toggle(show: bool) -> void:
-	if !show: get_tree().current_scene.visible = true
-	$AudioMenu.visible = show
+func menu_toggle() -> void:
+	if (get_tree().current_scene.name == "MainMenu"):
+			get_tree().current_scene.visible = !get_tree().current_scene.visible
+	$AudioMenu.visible = !$AudioMenu.visible
 	
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"): menu_toggle(!$AudioMenu.visible)
+	if event.is_action_pressed("Menu"): menu_toggle()
 	
 
 func _on_back_pressed() -> void:
-	menu_toggle(false)
+	menu_toggle()
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
