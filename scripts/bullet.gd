@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Bullet
 
-const INIT_SPEED_BASE = 27 # hero strength
+const INIT_SPEED_BASE = 29 # hero strength
 const GRAVITY = 0.45
 const POWER_SCALE = 2 # penalty for each weight increase
 

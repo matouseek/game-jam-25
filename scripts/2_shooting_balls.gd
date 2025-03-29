@@ -1,8 +1,8 @@
 extends Node2D
 
+const BULLET_ICON_PATH = "res://assets/shooting_balls/balls/ball"
 var bullet_scene = preload("res://scenes/minigames/shooting_balls/bullet.tscn")
 
-@onready var hud = $Hud
 @onready var cannon = $Cannon
 @onready var targets = $Targets
 @onready var target_count = targets.get_child_count()
@@ -32,13 +32,9 @@ const BALL_QUEUE_OFFSET = GM.WINDOW_WIDTH / 10.0
 func _ready():
 	setup_shot_timer()
 	setup_balls_to_shoot()
-	hud.digit_pressed.connect(hud_button_press)
-	setup_layout()
 	connect_to_targets()
-	mark_selected_ammo_button(selected_ammo)
 	tween_label()
 	
-
 func setup_balls_to_shoot():
 	for i in range(BALLS_QUEUE_SIZE):
 		append_bullet_to_stack()
@@ -48,12 +44,20 @@ func tween_bullet_to_stack():
 	bullet.position.x -= BALL_QUEUE_OFFSET
 	var tween = get_tree().create_tween()
 	tween.tween_property(bullet, "position", Vector2(bullet.position.x+BALL_QUEUE_OFFSET,bullet.position.y), SHOT_DELAY)
-	
+
+
+func get_random_bullet_weight():
+	if GM.travelling_back:
+		return 0
+	else:
+		return randi_range(1,MAX_BALL_WEIGHT)
 
 func append_bullet_to_stack():
 	var bullet : Bullet = bullet_scene.instantiate() as Bullet
 	bullet.position.x -= $BallsStack.get_child_count() * BALL_QUEUE_OFFSET
-	bullet.digit = randi_range(1,MAX_BALL_WEIGHT)
+	bullet.digit = get_random_bullet_weight()
+	var sprite = bullet.get_node("Sprite2D")
+	sprite.texture = load(BULLET_ICON_PATH + str(bullet.digit) + ".png")
 	$BallsStack.add_child(bullet)
 	return bullet
 
@@ -69,7 +73,6 @@ func tween_balls():
 	delete_oldest_bullet_from_stack()
 	tween_bullet_to_stack()
 	
-	
 func setup_shot_timer():
 	shot_timer = Timer.new()
 	shot_timer.wait_time = SHOT_DELAY
@@ -78,31 +81,9 @@ func setup_shot_timer():
 	add_child(shot_timer)
 	shot_timer.start()
 
-# setup layout based on travelling direction
-func setup_layout():
-	if GM.travelling_back:
-		hud.current_layout = hud.Layout.ZERO
-	else:
-		hud.current_layout = hud.Layout.BASE
-	var layout_arr = hud.layouts.get(hud.current_layout)
-	selected_ammo = layout_arr[len(layout_arr)-1]
-	hud.setup(layout_arr) # refresh Hud to take changes into account
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	set_cannon_direction()
-
-# change new buttons normal appearance as the hover one and change old buttons back
-func mark_selected_ammo_button(new_digit : int):
-	var old_butt = hud.buttons.get_child(selected_ammo) as TextureButton
-	old_butt.texture_normal = load(hud.NORMAL_ICON + str(selected_ammo) + ".png")
-	
-	var new_butt = hud.buttons.get_child(new_digit) as TextureButton
-	new_butt.texture_normal = load(hud.HOVER_ICON + str(new_digit) + ".png")	
-
-func hud_button_press(new_digit : int):
-	mark_selected_ammo_button(new_digit) 
-	selected_ammo = new_digit # select new ammo
 
 # connect to targets destroyed signals
 func connect_to_targets():
@@ -120,7 +101,6 @@ func set_cannon_direction():
 	cannon.rotation += dir * CANNON_ROT_SPEED
 	limit_cannon_movement()
 
-
 func limit_cannon_movement():
 	if cannon.rotation < CANNON_ROT_UP_LIM:
 		cannon.rotation = CANNON_ROT_UP_LIM
@@ -129,17 +109,18 @@ func limit_cannon_movement():
 
 func _input(event):
 	if Input.is_action_just_pressed("shoot"):
-		shoot(selected_ammo)
+		shoot()
 
 # shoots the specified digit, the digit value controls the weight of the bullet
-func shoot(digit_to_shoot : float):
+func shoot():
 	if shot_timer.time_left == 0:
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
 		bullet.position = cannon.position
 		bullet.direction = Vector2(cos(cannon.rotation),sin(cannon.rotation))
-		digit_to_shoot = $BallsStack.get_child(0).digit
-		bullet.digit = digit_to_shoot
+		bullet.digit = $BallsStack.get_child(0).digit
+		var sprite = bullet.get_node("Sprite2D")
+		sprite.texture = load(BULLET_ICON_PATH + str(bullet.digit) + ".png")
 		bullet.start_flying()
 		get_tree().current_scene.add_child(bullet)
 		tween_balls()
