@@ -17,9 +17,8 @@ var flying : bool = false
 func _ready():
 	pass # Replace with function body.
 
-func start_flying(digit_to_shoot : int):
-	var init_speed : float = get_init_speed(digit_to_shoot) 
-	print(init_speed)
+func start_flying():
+	var init_speed : float = get_init_speed() 
 	velocity.y = direction.y * init_speed
 	velocity.x = direction.x * init_speed
 	speed = init_speed
@@ -32,7 +31,8 @@ func _process(delta : float):
 		move()
 
 func move():
-	velocity.y += GRAVITY
+	if digit != 0: # special photon case
+		velocity.y += GRAVITY
 	position.x += velocity.x
 	position.y += velocity.y 
 
@@ -41,5 +41,5 @@ func check_out_of_bounds_down():
 	if position.y > GM.WINDOW_HEIGHT + height_offset:
 		queue_free()
 
-func get_init_speed(digit_to_shoot : int) -> float:
-	return INIT_SPEED_BASE - (digit_to_shoot * POWER_SCALE)
+func get_init_speed() -> float:
+	return INIT_SPEED_BASE - (digit * POWER_SCALE)
