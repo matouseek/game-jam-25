@@ -42,6 +42,8 @@
   - [x] move cannon by arrows
   - [x] add moving enemies up and down
 
+- [ ] bigger probability of lighter balls
+
 ## Matous
 
 - [x] password minigame
