@@ -22,8 +22,8 @@ var FADE_TIME : float = 0.5
 func _ready() -> void:
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
-	music.volume_db = $AudioMenu/MusicVolume.value
-	sfx.volume_db = $AudioMenu/SFXVolume.value
+	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)
+	sfx.volume_db = linear_to_db($AudioMenu/SFXVolume.value)
 	play_music('res://assets/music/skibidi.mp3')
 	
 
