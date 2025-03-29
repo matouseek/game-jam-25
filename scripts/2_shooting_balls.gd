@@ -18,6 +18,11 @@ const MAX_STRETCH = 1.05
 var shot_timer : Timer
 const SHOT_DELAY : float = 1.0
 
+# cannon rotation
+const CANNON_ROT_SPEED : float = PI / 100
+const CANNON_ROT_DOWN_LIM : float = 0
+const CANNON_ROT_UP_LIM : float = - PI / 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_shot_timer()
@@ -75,8 +80,16 @@ func check_targets_destroyed():
 		GM.level_completed.emit()
 
 func set_cannon_direction():
-	var mouse_pos = get_global_mouse_position()
-	cannon.look_at(mouse_pos)
+	var dir = Input.get_axis("up","down")
+	cannon.rotation += dir * CANNON_ROT_SPEED
+	limit_cannon_movement()
+
+
+func limit_cannon_movement():
+	if cannon.rotation < CANNON_ROT_UP_LIM:
+		cannon.rotation = CANNON_ROT_UP_LIM
+	if cannon.rotation > CANNON_ROT_DOWN_LIM:
+		cannon.rotation = CANNON_ROT_DOWN_LIM
 
 func _input(event):
 	if Input.is_action_just_pressed("shoot"):
@@ -85,12 +98,11 @@ func _input(event):
 # shoots the specified digit, the digit value controls the weight of the bullet
 func shoot(digit_to_shoot : float):
 	if shot_timer.time_left == 0:
-		print("starting timer again")
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
 		bullet.position = cannon.position
 		var mouse_pos : Vector2 = get_global_mouse_position()
-		bullet.direction = (mouse_pos - bullet.position).normalized()
+		bullet.direction = Vector2(cos(cannon.rotation),sin(cannon.rotation))
 		bullet.digit = digit_to_shoot
 		bullet.start_flying()
 		get_tree().current_scene.add_child(bullet)
