@@ -8,11 +8,11 @@
   - has different layouts
   - sends parametrized signal
   - only the hud has to emit based on the concrete buttons 
+- [x] buttons pressed instead of button down
 
 - [ ] test comics like clip switching
   - zeroland scene
   - one 
-- [ ] buttons pressed instead of button down
 
 ## Janek
 
