@@ -4,15 +4,25 @@ class_name Target
 
 signal i_am_destroyed
 
+# move timer
+const SPEED : float = 1.5
+const AMPLITUDE : float = 100.0
+var ticks = 0
+
+var start_y
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	area_entered.connect(on_hit_by_bullet)
+	start_y = position.y
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	ticks += delta * SPEED
+	position.y = start_y + sin(ticks) * AMPLITUDE
+	
 
 func on_hit_by_bullet(area):
 	i_am_destroyed.emit()
