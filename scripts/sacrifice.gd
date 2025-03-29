@@ -2,7 +2,7 @@ extends Node2D
 
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
-const DIALOG_TIME : float = 2
+const DIALOG_TIME : float = 0.5
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
 @onready var ship = $Prolog/Ship
@@ -80,7 +80,7 @@ func spread_people():
 	var TOP_OFFSET = 1/4.0
 	var y =  get_viewport().size.y * TOP_OFFSET 
 	for p in people:
-		var sprite = p as Sprite2D
+		var sprite = p as Area2D
 		sprite.position.x = current_pos
 		current_pos += chunk_size
 		sprite.position.y = y
@@ -98,9 +98,9 @@ func sacrifice(to_sacrifice : int):
 			var sfx_zmrd := people[i].get_child(0) as AudioStreamPlayer
 			sfx_zmrd.pitch_scale += randf_range(-0.1, 0.3)
 			sfx_zmrd.stream = load("res://assets/sfx/screaming_falling.mp3") as AudioStream
-			sfx_zmrd.play()
+			sfx_zmrd.play(randf_range(0.0, 0.3))
 			tween = get_tree().create_tween()
-			var sprite = people[i] as Sprite2D
+			var sprite = people[i] as Area2D
 			tween.tween_property(sprite, "position", Vector2(sprite.position.x, 500), SACRIFICE_TIME)
 			tween.parallel().tween_property(sprite, "modulate", Color.RED, SACRIFICE_TIME)
 			tween.parallel().tween_property(sprite, "scale", Vector2(), SACRIFICE_TIME)
