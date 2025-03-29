@@ -15,3 +15,5 @@ func start_transitions():
 		await timer.timeout
 		var tween = get_tree().create_tween()
 		tween.tween_property($Camera,"position", p, TRANSITION_TIME)
+		await tween.finished
+	GM.level_completed.emit()

@@ -3,14 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GM.current_level = -1
+	pass
 
-
-
-func _on_play_pressed() -> void: GM.fade_to_scene("res://scenes/minigames/0math_formulas.tscn")
-
-
-
+func _on_play_pressed() -> void: GM.fade_to_scene(GM.MATH_FORMULAS_SCENE)
 
 func _on_audio_pressed() -> void:
 	GM.menu_toggle()

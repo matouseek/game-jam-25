@@ -65,10 +65,9 @@ func uncover_label(state : int, text : String) -> void:
 			
 			end_minigame()
 		_:
-			print("Posralo se to nekde")
+			print(GM.STANDARD_ERROR_MESSAGE + " se stavem " + str(state))
 
 func end_minigame() -> void:
-	print("Ending Minigame")
 	GM.level_completed.emit()
 
 func rewrite_text_for_travelling_back():

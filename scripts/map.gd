@@ -19,12 +19,27 @@ func prep_icons():
 	for u in uncasted:
 		icons.append(u as TextureRect)
 
-# switches icon colors based on current level
-func set_icon_colors():
+func set_icon_colors_forwards():
 	for i in range(len(icons)):
 		if i < GM.current_level:
 			icons[i].texture = ImageTexture.create_from_image(icon_green)
 		elif i == GM.current_level:
 			icons[i].texture = ImageTexture.create_from_image(icon_yellow)
 		elif i > GM.current_level:
+			icons[i].texture = ImageTexture.create_from_image(icon_red)	
+
+func set_icon_colors_backwards():
+	for i in range(len(icons)):
+		if i > GM.current_level:
+			icons[i].texture = ImageTexture.create_from_image(icon_green)
+		elif i == GM.current_level:
+			icons[i].texture = ImageTexture.create_from_image(icon_yellow)
+		elif i < GM.current_level:
 			icons[i].texture = ImageTexture.create_from_image(icon_red)
+
+# switches icon colors based on current level
+func set_icon_colors():
+	if GM.travelling_back:
+		set_icon_colors_backwards()
+	else:
+		set_icon_colors_forwards()
