@@ -19,6 +19,10 @@
 
 - [ ] find cannon sounds
 
+IMPORTANT:
+- [ ] not solvable button text
+- [ ] zeroland scenes
+
 ## Janek
 
 - [x] shooting balls minigame
