@@ -10,23 +10,14 @@
   - only the hud has to emit based on the concrete buttons 
 - [x] buttons pressed instead of button down
 
+- [x] tween math problems
+  - when correct writing new 
+
 - [ ] add screenshakes and audio to password minigame
 
 - [ ] add sounds
 
-- [ ] try first comic clip switching with some dummy pictures
-- [ ] test comics like clip switching
-  - zeroland scene
-  - one
-
-- [ ] prepare arrows for ship to change direction
-
 - [ ] find cannon sounds
-
-- [ ] tween math problems
-  - when correct writing new 
-
-- [ ] ending scene
 
 ## Janek
 
@@ -41,6 +32,13 @@
   - [x] implement delay before shots
   - [x] move cannon by arrows
   - [x] add moving enemies up and down
+
+- [x] bigger probability of lighter balls
+
+- [ ] ending scene dummies
+
+- [ ] test comics like clip switching
+  - zeroland scene
 
 ## Matous
 
@@ -60,4 +58,4 @@
 
 - [ ] create storyboard
 
-- [ ] create button boards
+- [x] create button boards
