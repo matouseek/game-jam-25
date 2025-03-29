@@ -24,3 +24,14 @@ position = Vector2(1612, 204)
 
 [node name="Target3" parent="Targets" instance=ExtResource("4_t73cc")]
 position = Vector2(1617, 484)
+
+[node name="SpaceToShoot" type="Label" parent="."]
+offset_left = 68.0
+offset_top = 54.0
+offset_right = 562.0
+offset_bottom = 123.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Press Space to Shoot
+W and S to Rotate Cannon"
+horizontal_alignment = 1

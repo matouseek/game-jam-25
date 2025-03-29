@@ -1,5 +1,7 @@
 extends Control
 
+class_name Hud
+
 const PATH_TO_BUTT_ICONS : String = "res://assets/button_icons/"
 
 const NORMAL_ICON : String = PATH_TO_BUTT_ICONS + "default"

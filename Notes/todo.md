@@ -27,7 +27,11 @@
 - shooting balls
   - make shots load with corresponding picture
   - create targets
-  - [ ] implement travelling back
+  - [x] implement travelling back
+  - [x] add shooting with space label
+  - [x] implement delay before shots
+  - [x] move cannon by arrows
+  - [x] add moving enemies up and down
 
 ## Matous
 
