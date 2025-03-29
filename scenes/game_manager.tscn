@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_smr6r"]
 
 [node name="GameManager" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_smr6r")
 
 [node name="Fade" type="ColorRect" parent="."]
@@ -13,10 +14,10 @@ color = Color(0, 0, 0, 0)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
-[node name="AudioMenu" type="Node2D" parent="."]
+[node name="Menu" type="Node2D" parent="."]
 visible = false
 
-[node name="UnclickableArea" type="ColorRect" parent="AudioMenu"]
+[node name="UnclickableArea" type="ColorRect" parent="Menu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="SFXVolume" type="HSlider" parent="AudioMenu"]
+[node name="SFXVolume" type="HSlider" parent="Menu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,7 +44,7 @@ grow_vertical = 2
 max_value = 1.0
 step = 0.01
 
-[node name="MusicVolume" type="HSlider" parent="AudioMenu"]
+[node name="MusicVolume" type="HSlider" parent="Menu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,7 +59,7 @@ grow_vertical = 2
 max_value = 1.0
 step = 0.01
 
-[node name="Back" type="Button" parent="AudioMenu"]
+[node name="Back" type="Button" parent="Menu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -75,7 +76,16 @@ size_flags_vertical = 4
 text = "Back"
 metadata/_edit_use_anchors_ = true
 
+[node name="ArachMode" type="CheckBox" parent="Menu"]
+offset_left = 82.0
+offset_top = 186.0
+offset_right = 283.0
+offset_bottom = 217.0
+text = "Arachnofobia mode
+"
+
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
-[connection signal="value_changed" from="AudioMenu/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="value_changed" from="AudioMenu/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="pressed" from="AudioMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Menu/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="Menu/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Menu/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/ArachMode" to="." method="_on_arach_mode_pressed"]
