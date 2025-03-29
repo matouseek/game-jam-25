@@ -11,6 +11,9 @@ signal map_completed ## emits by map when player chose next minigame
 signal mouse_entered_button ## to change cursor style
 signal mouse_exited_button ## to change cursor style back
 
+const WINDOW_WIDTH : int = 1920
+const WINDOW_HEIGHT : int = 1080
+
 # FADE STUFF
 var current_level : int = -1 ## tracks the current game state
 var FADE_TIME : float = 0.5
@@ -27,6 +30,8 @@ var beam = load("res://assets/icon_red.svg")
 # Called when the node enters the scene tree for the first FADE_TIME.
 func _ready() -> void:
 	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
+	$Fade.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
+	$AudioMenu/UnclickableArea.size = Vector2(WINDOW_WIDTH, WINDOW_HEIGHT)
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
 	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)

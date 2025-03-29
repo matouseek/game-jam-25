@@ -44,8 +44,10 @@ func enable_buttons(to_enable : Array):
 func spread_buttons(to_spread : Array):
 	const BUTT_OFFSET_RATIO = 3.0 / 4  
 	
-	var chunk_size : float = get_viewport().size.x / (len(to_spread) + 1)
-	var top_offset : float = get_viewport().size.y * BUTT_OFFSET_RATIO
+	#var chunk_size : float = get_viewport().size.x / (len(to_spread) + 1)
+	#var top_offset : float = get_viewport().size.y * BUTT_OFFSET_RATIO
+	var chunk_size : float = GM.WINDOW_WIDTH / (len(to_spread) + 1)
+	var top_offset : float = GM.WINDOW_HEIGHT * BUTT_OFFSET_RATIO
 	var current_pos : float = chunk_size
 	for i in to_spread:
 		var button = $Buttons.get_child(i) as TextureButton

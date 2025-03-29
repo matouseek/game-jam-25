@@ -17,7 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func spread_people():
-	var chunk_size : float = get_viewport().size.x / (len(people) + 1)
+	#var chunk_size : float = get_viewport().size.x / (len(people) + 1)
+	var chunk_size : float = GM.WINDOW_WIDTH / (len(people) + 1)
 	var current_pos : float = chunk_size
 	var TOP_OFFSET = 1/4.0
 	var y =  get_viewport().size.y * TOP_OFFSET 
