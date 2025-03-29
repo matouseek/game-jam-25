@@ -1,19 +1,33 @@
 extends Node2D
 
 var people : Array = []
-const SACRIFICE_TIME : float = 1.0
+const SACRIFICE_TIME : float = 1.5
 const DIALOG_TIME : float = 2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	people = $People.get_children()
 	spread_people()
 	$Hud.digit_pressed.connect(sacrifice)
+	if (GM.travelling_back): travel_back()
+	else: first_time()
+
+func first_time():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Natives, "modulate:a", 1, DIALOG_TIME)
 	await  tween.finished
 	tween = get_tree().create_tween()
 	tween.tween_property($Ship, "modulate:a", 1, DIALOG_TIME)
 
+func travel_back():
+	$Hud.current_layout = $Hud.Layout.ZERO
+	$Hud._ready()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Natives, "modulate:a", 1, DIALOG_TIME)
+	$Natives.text = "Again, how many we will sacrifice?"
+	await  tween.finished
+	tween = get_tree().create_tween()
+	tween.tween_property($Ship, "modulate:a", 1, DIALOG_TIME)
+	$Ship.text = "No one, please"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func spread_people():
@@ -29,14 +43,18 @@ func spread_people():
 		sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
-	var tween
-	for i in range(to_sacrifice):
-		tween = get_tree().create_tween()
-		var sprite = people[i] as Sprite2D
-		tween.tween_property(sprite, "position", Vector2(sprite.position.x, 500), SACRIFICE_TIME)
-		tween.parallel().tween_property(sprite, "modulate", Color.RED, SACRIFICE_TIME)
-		tween.parallel().tween_property(sprite, "scale", Vector2(), SACRIFICE_TIME)
-		
-	await tween.finished
+	if to_sacrifice >= 1:
+		var tween
+		$Hud.process_mode = Node.PROCESS_MODE_DISABLED
+		var hud_tween = get_tree().create_tween()
+		hud_tween.tween_property($Hud, "modulate:a", 0, 0.5)
+		hud_tween.tween_callback(func(): $Hud.visible = false)
+		for i in range(to_sacrifice):
+			tween = get_tree().create_tween()
+			var sprite = people[i] as Sprite2D
+			tween.tween_property(sprite, "position", Vector2(sprite.position.x, 500), SACRIFICE_TIME)
+			tween.parallel().tween_property(sprite, "modulate", Color.RED, SACRIFICE_TIME)
+			tween.parallel().tween_property(sprite, "scale", Vector2(), SACRIFICE_TIME)
+		await tween.finished
 	GM.level_completed.emit()
 		
