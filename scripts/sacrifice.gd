@@ -28,7 +28,7 @@ func spread_people():
 		sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
-	var tween# = get_tree().create_tween()
+	var tween
 	for i in range(to_sacrifice):
 		tween = get_tree().create_tween()
 		var sprite = people[i] as Sprite2D
