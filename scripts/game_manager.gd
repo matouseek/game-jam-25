@@ -8,13 +8,17 @@ const MAP_SCENE_PATH := "res://scenes/map.tscn"
 signal level_completed ## each minigame emits it when done
 signal map_completed ## emits by map when player chose next minigame
 
+# FADE STUFF
 var current_level : int = 0 ## tracks the current game state
-var TIME : float = 0.5
+var FADE_TIME : float = 0.5
 @onready var fade : ColorRect = $Fade
+
+# MUSIC STUFF
 @onready var sfx : AudioStreamPlayer = $SFX
 @onready var music : AudioStreamPlayer = $Music
 
-# Called when the node enters the scene tree for the first time.
+
+# Called when the node enters the scene tree for the first FADE_TIME.
 func _ready() -> void:
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
@@ -34,15 +38,13 @@ func load_level() -> void:
 	
 func fade_to_scene(scene : String) -> void:
 	fade.visible = true
-	var tween = get_tree().create_tween()
-	tween.tween_property(fade,"color:a",1,TIME)
-	var timer = get_tree().create_timer(TIME)
-	await timer.timeout
+	var tween : Tween = get_tree().create_tween() # starts right after created
+	tween.tween_property(fade,"color:a",1,FADE_TIME)
+	await tween.finished
 	get_tree().change_scene_to_file(scene)
 	tween = get_tree().create_tween()
-	tween.tween_property(fade,"color:a",0,TIME)
-	timer = get_tree().create_timer(TIME)
-	await timer.timeout
+	tween.tween_property(fade,"color:a",0,FADE_TIME)
+	await tween.finished
 	fade.visible = false
 
 func menu_toggle(show: bool) -> void:
