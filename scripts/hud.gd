@@ -22,9 +22,9 @@ func _ready():
 func initialize_button_icons():
 	for i in $Buttons.get_child_count():
 		var butt = $Buttons.get_child(i) as TextureButton
-		butt.texture_normal = ImageTexture.create_from_image(Image.load_from_file(PATH_TO_BUTT_ICONS + "default" + str(i) + ".png"))
-		butt.texture_hover = ImageTexture.create_from_image(Image.load_from_file(PATH_TO_BUTT_ICONS + "hover" + str(i) + ".png"))
-		butt.texture_pressed = ImageTexture.create_from_image(Image.load_from_file(PATH_TO_BUTT_ICONS + "pressed" + str(i) + ".png"))
+		butt.texture_normal = load(PATH_TO_BUTT_ICONS + "default" + str(i) + ".png")
+		butt.texture_hover = load(PATH_TO_BUTT_ICONS + "hover" + str(i) + ".png")
+		butt.texture_pressed = load(PATH_TO_BUTT_ICONS + "pressed" + str(i) + ".png")
 
 # connects to the buttons pressed signals
 func connect_buttons():
