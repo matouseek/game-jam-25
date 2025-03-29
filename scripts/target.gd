@@ -5,9 +5,9 @@ class_name Target
 signal i_am_destroyed
 
 # move timer
-const SPEED : float = 1.5
-const AMPLITUDE : float = 100.0
-var ticks = 0
+@export var SPEED : float = 1.5
+@export var AMPLITUDE : float = 100.0
+@export var ticks : float = 0
 
 var start_y
 

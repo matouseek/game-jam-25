@@ -17,16 +17,15 @@ texture = ExtResource("3_2kry5")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("4_t73cc")]
-position = Vector2(1616, 769)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1111, 364)
 
 [node name="Target2" parent="Targets" instance=ExtResource("4_t73cc")]
-position = Vector2(1612, 204)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1387, 759)
+ticks = 1.047
 
 [node name="Target3" parent="Targets" instance=ExtResource("4_t73cc")]
-position = Vector2(1617, 484)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1676, 213)
+ticks = 0.628
 
 [node name="SpaceToShoot" type="Label" parent="."]
 offset_left = 68.0
