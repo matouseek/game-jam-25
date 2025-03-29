@@ -65,7 +65,7 @@ func enable_buttons(to_enable : Array):
 
 # spreads the buttons on the screen
 func spread_buttons(to_spread : Array):
-	const BUTT_OFFSET_RATIO = 3.0 / 4  
+	const BUTT_OFFSET_RATIO = 0.87
 	
 	#var chunk_size : float = get_viewport().size.x / (len(to_spread) + 1)
 	#var top_offset : float = get_viewport().size.y * BUTT_OFFSET_RATIO

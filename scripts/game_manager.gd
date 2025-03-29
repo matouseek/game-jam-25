@@ -5,6 +5,7 @@ const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## co
 
 const ZEROLAND_SCENE = "res://scenes/zeroland.tscn"
 const MATH_FORMULAS_SCENE = "res://scenes/minigames/0math_formulas.tscn"
+const INTRO_SCENE := "res://scenes/cutscenes/intro.tscn"
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
