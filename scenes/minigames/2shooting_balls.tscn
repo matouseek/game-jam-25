@@ -9,7 +9,6 @@
 script = ExtResource("1_rrlqu")
 
 [node name="Hud" parent="." instance=ExtResource("2_qnxef")]
-current_layout = 2
 
 [node name="Cannon" type="Sprite2D" parent="."]
 position = Vector2(423, 522)
