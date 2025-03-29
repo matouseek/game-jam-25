@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbsbeofqmq18r"]
+
+[ext_resource type="Texture2D" uid="uid://qomxh5pam2h" path="res://assets/intro/sky.png" id="1_60hn2"]
+[ext_resource type="Texture2D" uid="uid://bdyn15xtl376q" path="res://assets/intro/hill_0.png" id="2_oqq8t"]
+[ext_resource type="Script" path="res://scenes/cutscenes/camera_2d.gd" id="2_ys5jr"]
+[ext_resource type="Texture2D" uid="uid://cc8olew1dxxwc" path="res://assets/intro/clouds.png" id="3_exyhn"]
+[ext_resource type="Texture2D" uid="uid://d0d4sk4q5ear7" path="res://assets/intro/hill_1.png" id="3_yu7gc"]
+[ext_resource type="Texture2D" uid="uid://bs2b1ndd34qax" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
+[ext_resource type="Texture2D" uid="uid://rderwd61ok7d" path="res://assets/intro/foreground.png" id="5_6fwm4"]
+
+[node name="Intro" type="Node2D"]
+
+[node name="Parallax" type="Node2D" parent="."]
+position = Vector2(800, 450)
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.1)
+
+[node name="Sky" type="Sprite2D" parent="Parallax/Parallax2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_60hn2")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.2)
+
+[node name="Hill_0" type="Sprite2D" parent="Parallax/Parallax2D2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oqq8t")
+
+[node name="Parallax2D6" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.25)
+
+[node name="Clouds" type="Sprite2D" parent="Parallax/Parallax2D6"]
+position = Vector2(0, -200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_exyhn")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.3)
+
+[node name="Hill_1" type="Sprite2D" parent="Parallax/Parallax2D3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yu7gc")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.4)
+
+[node name="Foreground" type="Sprite2D" parent="Parallax/Parallax2D5"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_6fwm4")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.4)
+
+[node name="Colosseum" type="Sprite2D" parent="Parallax/Parallax2D4"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vwd4l")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+position_smoothing_enabled = true
+script = ExtResource("2_ys5jr")
