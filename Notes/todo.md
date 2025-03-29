@@ -16,8 +16,17 @@
 
 ## Janek
 
+- [ ] shooting balls minigame
+
 ## Matous
+
+- [ ] password minigame
 
 ## Vladik
 
+- [ ] fade-in/out
+  -  minigame -> map OR map -> minigame
+
 ## Stepan
+
+- [ ] create storyboard
