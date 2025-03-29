@@ -2,9 +2,9 @@ extends Node2D
 
 var icons : Array[TextureRect]
 
-@onready var icon_green : Image = Image.load_from_file("res://assets/icon_green.svg")
-@onready var icon_yellow : Image = Image.load_from_file("res://assets/icon_yellow.svg")
-@onready var icon_red : Image = Image.load_from_file("res://assets/icon_red.svg")
+const ICON_GREEN : String = "res://assets/icon_green.svg"
+const ICON_YELLOW : String = "res://assets/icon_yellow.svg"
+const ICON_RED : String = "res://assets/icon_red.svg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,20 +22,20 @@ func prep_icons():
 func set_icon_colors_forwards():
 	for i in range(len(icons)):
 		if i < GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_green)
+			icons[i].texture = load(ICON_GREEN)
 		elif i == GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_yellow)
+			icons[i].texture = load(ICON_YELLOW)
 		elif i > GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_red)	
+			icons[i].texture = load(ICON_RED)	
 
 func set_icon_colors_backwards():
 	for i in range(len(icons)):
 		if i > GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_green)
+			icons[i].texture = load(ICON_GREEN)
 		elif i == GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_yellow)
+			icons[i].texture = load(ICON_YELLOW)
 		elif i < GM.current_level:
-			icons[i].texture = ImageTexture.create_from_image(icon_red)
+			icons[i].texture = load(ICON_RED)
 
 # switches icon colors based on current level
 func set_icon_colors():
