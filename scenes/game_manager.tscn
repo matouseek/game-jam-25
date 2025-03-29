@@ -7,17 +7,6 @@ script = ExtResource("1_smr6r")
 
 [node name="Fade" type="ColorRect" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -800.0
-offset_top = -450.0
-offset_right = 800.0
-offset_bottom = 450.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
@@ -51,10 +40,8 @@ offset_right = 216.0
 offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = -20.0
-max_value = 0.0
-step = 0.2
-value = -5.0
+max_value = 1.0
+step = 0.01
 
 [node name="MusicVolume" type="HSlider" parent="AudioMenu"]
 anchors_preset = 8
@@ -70,7 +57,6 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 1.0
 step = 0.01
-value = 0.5
 
 [node name="Back" type="Button" parent="AudioMenu"]
 anchors_preset = 8

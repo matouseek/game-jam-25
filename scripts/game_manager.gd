@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const PATH_TO_SCENES := "res://scenes/minigames/" 
-const SCENES := ["0math_formulas.tscn","1sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
+const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
@@ -11,8 +11,11 @@ signal map_completed ## emits by map when player chose next minigame
 signal mouse_entered_button ## to change cursor style
 signal mouse_exited_button ## to change cursor style back
 
+const WINDOW_WIDTH : int = 1920
+const WINDOW_HEIGHT : int = 1080
+
 # FADE STUFF
-var current_level : int = 0 ## tracks the current game state
+var current_level : int = -1 ## tracks the current game state
 var FADE_TIME : float = 0.5
 @onready var fade : ColorRect = $Fade
 
@@ -27,10 +30,12 @@ var beam = load("res://assets/icon_red.svg")
 # Called when the node enters the scene tree for the first FADE_TIME.
 func _ready() -> void:
 	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
+	$Fade.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
+	$AudioMenu/UnclickableArea.size = Vector2(WINDOW_WIDTH, WINDOW_HEIGHT)
 	level_completed.connect(switch_to_map)
 	map_completed.connect(load_level)
-	music.volume_db = $AudioMenu/MusicVolume.value
-	sfx.volume_db = $AudioMenu/SFXVolume.value
+	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)
+	sfx.volume_db = linear_to_db($AudioMenu/SFXVolume.value)
 	play_music('res://assets/music/skibidi.mp3')
 	
 
@@ -59,17 +64,18 @@ func fade_to_scene(scene : String) -> void:
 	await tween.finished
 	fade.visible = false
 
-func menu_toggle(show: bool) -> void:
-	if !show: get_tree().current_scene.visible = true
-	$AudioMenu.visible = show
+func menu_toggle() -> void:
+	if (get_tree().current_scene.name == "MainMenu"):
+			get_tree().current_scene.visible = !get_tree().current_scene.visible
+	$AudioMenu.visible = !$AudioMenu.visible
 	
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"): menu_toggle(!$AudioMenu.visible)
+	if event.is_action_pressed("Menu"): menu_toggle()
 	
 
 func _on_back_pressed() -> void:
-	menu_toggle(false)
+	menu_toggle()
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
