@@ -15,9 +15,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.x += delta*speed
 
-func walk(spd : float):
+func run(spd : float):
 	speed = spd
-	anime.play("walking")
+	anime.play("running")
 
 func _on_area_entered(area: Area2D) -> void:
 	speed = 0
@@ -25,7 +25,8 @@ func _on_area_entered(area: Area2D) -> void:
 	scream.pitch_scale += randf_range(-0.1, 0.3)
 	scream.stream = load("res://assets/sfx/screaming_falling.mp3") as AudioStream
 	scream.play(randf_range(0.0, 0.3))
+	await anime.animation_finished
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(position.x, 700), SACRIFICE_TIME)
 	tween.parallel().tween_property(self, "modulate", Color.RED, SACRIFICE_TIME)
-	tween.parallel().tween_property(self, "scale", Vector2(), SACRIFICE_TIME)
+	#tween.parallel().tween_property(self, "scale", Vector2(), SACRIFICE_TIME)

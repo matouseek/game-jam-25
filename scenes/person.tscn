@@ -49,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_cnocp")
 }],
-"loop": true,
+"loop": false,
 "name": &"falling",
 "speed": 5.0
 }, {
@@ -67,8 +67,8 @@ animations = [{
 "texture": ExtResource("13_r7y6s")
 }],
 "loop": true,
-"name": &"walking",
-"speed": 5.0
+"name": &"running",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4fqk"]

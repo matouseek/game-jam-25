@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hviaqnalnha7"]
 
-[ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="1_nycry"]
 [ext_resource type="Script" path="res://scripts/zeroland.gd" id="1_pevh3"]
+[ext_resource type="Texture2D" uid="uid://byhj3je0g5qhy" path="res://assets/button_icons/default0.png" id="2_tqmu7"]
 
 [node name="Zeroland" type="Node2D"]
 script = ExtResource("1_pevh3")
@@ -9,7 +9,7 @@ script = ExtResource("1_pevh3")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1149.0
 offset_bottom = 646.0
-texture = ExtResource("1_nycry")
+texture = ExtResource("2_tqmu7")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(146, 84)

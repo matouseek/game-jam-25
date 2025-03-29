@@ -2,7 +2,7 @@ extends Node2D
 
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
-const DIALOG_TIME : float = 2.0
+const DIALOG_TIME : float = 0.5
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
 @onready var ship = $Prolog/Ship
@@ -93,7 +93,7 @@ func sacrifice(to_sacrifice : int):
 		hud_tween.tween_callback(func(): hud.visible = false)
 		for i in range(to_sacrifice):
 			var sprite = people[i] as Person
-			sprite.walk(150)
+			sprite.run(150)
 		await get_tree().create_timer(5).timeout
 	GM.level_completed.emit()
 		
