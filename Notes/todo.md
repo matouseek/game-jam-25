@@ -14,6 +14,8 @@
   - zeroland scene
   - one 
 
+- [ ] add screenshakes and audio to password minigame
+
 ## Janek
 
 - [ ] shooting balls minigame
@@ -21,7 +23,7 @@
 
 ## Matous
 
-- [ ] password minigame
+- [x] password minigame
 
 ## Vladik
 
