@@ -27,6 +27,9 @@ const CANNON_ROT_UP_LIM : float = - PI / 2
 const MAX_BALL_WEIGHT = 9
 const BALLS_QUEUE_SIZE = 2
 const BALL_QUEUE_OFFSET = GM.WINDOW_WIDTH / 10.0
+const STARTING_BALLS = [3,5,7,2,4,1,9,6,3,1,4,2,1,1,1]
+const PI_DIGS = [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1,6,9,3,9,9,3,7,5,1,0,5,8,2,0,9,7,4,9,4,4,5,9,2,3,0,7,8,1,6,4,0,6,2,8,6,]
+var next_ball = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,11 +49,15 @@ func tween_bullet_to_stack():
 	tween.tween_property(bullet, "position", Vector2(bullet.position.x+BALL_QUEUE_OFFSET,bullet.position.y), SHOT_DELAY)
 
 
+func get_next_ball():
+	next_ball += 1
+	return (STARTING_BALLS + PI_DIGS)[next_ball % (len(STARTING_BALLS) + len(PI_DIGS))]
+
 func get_random_bullet_weight():
 	if GM.travelling_back:
 		return 0
 	else:
-		return randi_range(1,MAX_BALL_WEIGHT)
+		return get_next_ball()
 
 func append_bullet_to_stack():
 	var bullet : Bullet = bullet_scene.instantiate() as Bullet
