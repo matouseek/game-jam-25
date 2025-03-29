@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfuxg75qbvyw"]
+
+[ext_resource type="Texture2D" uid="uid://w1aio76onhhj" path="res://assets/shooting_balls/target.png" id="1_l2jwt"]
+[ext_resource type="Script" path="res://scripts/target.gd" id="1_mj5kt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyloi"]
+size = Vector2(126, 126)
+
+[node name="Target" type="Area2D"]
+script = ExtResource("1_mj5kt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l2jwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_wyloi")

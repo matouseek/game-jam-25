@@ -19,9 +19,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta : float):
+	check_out_of_bounds_down()
+	move()
+
+func move():
 	velocity.y += weight_from_digit(digit)
 	position.x += INIT_SPEED * direction.x
 	position.y += velocity.y 
+
+func check_out_of_bounds_down():
+	var height_offset = 40
+	if position.y > GM.WINDOW_HEIGHT + height_offset:
+		queue_free()
 
 func weight_from_digit(digit : int):
 	return digit
