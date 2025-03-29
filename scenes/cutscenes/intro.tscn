@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbsbeofqmq18r"]
+[gd_scene load_steps=11 format=3 uid="uid://dbsbeofqmq18r"]
 
 [ext_resource type="Texture2D" uid="uid://qomxh5pam2h" path="res://assets/intro/sky.png" id="1_60hn2"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_v8df2"]
@@ -6,59 +6,83 @@
 [ext_resource type="Script" path="res://scenes/cutscenes/camera_2d.gd" id="2_ys5jr"]
 [ext_resource type="Texture2D" uid="uid://cc8olew1dxxwc" path="res://assets/intro/clouds.png" id="3_exyhn"]
 [ext_resource type="Texture2D" uid="uid://d0d4sk4q5ear7" path="res://assets/intro/hill_1.png" id="3_yu7gc"]
-[ext_resource type="Texture2D" uid="uid://bs2b1ndd34qax" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
-[ext_resource type="Texture2D" uid="uid://rderwd61ok7d" path="res://assets/intro/foreground.png" id="5_6fwm4"]
+[ext_resource type="Texture2D" uid="uid://ce7cxyvmd3mol" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
+[ext_resource type="Texture2D" uid="uid://dma6qc1qyelr8" path="res://assets/intro/small_house.png" id="6_6ngc5"]
+[ext_resource type="Texture2D" uid="uid://cyuej4sdox75e" path="res://assets/intro/houses_background.png" id="6_y0awf"]
+[ext_resource type="Texture2D" uid="uid://2u6g7d4gsf06" path="res://assets/intro/big_house.png" id="7_wrrcc"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_v8df2")
 
 [node name="Parallax" type="Node2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(960, 500)
 
-[node name="Parallax2D" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.1)
+[node name="Sky" type="Node2D" parent="Parallax"]
 
-[node name="Sky" type="Sprite2D" parent="Parallax/Parallax2D"]
+[node name="Background" type="Parallax2D" parent="Parallax/Sky"]
+scroll_scale = Vector2(0, 0.05)
+
+[node name="Background" type="Sprite2D" parent="Parallax/Sky/Background"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_60hn2")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.2)
+[node name="Clouds" type="Parallax2D" parent="Parallax/Sky"]
+scroll_scale = Vector2(0, 0.15)
+scroll_offset = Vector2(0, 144)
 
-[node name="Hill_0" type="Sprite2D" parent="Parallax/Parallax2D2"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_oqq8t")
-
-[node name="Parallax2D6" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.25)
-
-[node name="Clouds" type="Sprite2D" parent="Parallax/Parallax2D6"]
-position = Vector2(0, -200)
+[node name="Clouds" type="Sprite2D" parent="Parallax/Sky/Clouds"]
+position = Vector2(0, -184)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_exyhn")
 
-[node name="Parallax2D3" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.3)
+[node name="Hill0" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.1)
 
-[node name="Hill_1" type="Sprite2D" parent="Parallax/Parallax2D3"]
+[node name="Hill_0" type="Sprite2D" parent="Parallax/Hill0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oqq8t")
+
+[node name="Hill1" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.12)
+
+[node name="Hill1" type="Sprite2D" parent="Parallax/Hill1"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_yu7gc")
 
-[node name="Parallax2D5" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.4)
+[node name="HousesBackground" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.25)
 
-[node name="Foreground" type="Sprite2D" parent="Parallax/Parallax2D5"]
+[node name="HousesBackground" type="Sprite2D" parent="Parallax/HousesBackground"]
+position = Vector2(0, 40)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_6fwm4")
+texture = ExtResource("6_y0awf")
 
-[node name="Parallax2D4" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0, 0.4)
+[node name="Houses" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.29)
 
-[node name="Colosseum" type="Sprite2D" parent="Parallax/Parallax2D4"]
+[node name="SmallHouse" type="Sprite2D" parent="Parallax/Houses"]
+position = Vector2(510, 132)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("6_6ngc5")
+
+[node name="SmallHouse2" type="Sprite2D" parent="Parallax/Houses"]
+position = Vector2(-591, 136)
+scale = Vector2(0.0604167, 0.0604167)
+texture = ExtResource("6_6ngc5")
+
+[node name="BigHouse" type="Sprite2D" parent="Parallax/Houses"]
+position = Vector2(789, 145)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("7_wrrcc")
+
+[node name="Foreground" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0, 0.3)
+
+[node name="Colosseum" type="Sprite2D" parent="Parallax/Foreground"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_vwd4l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -2108)
+position = Vector2(0, -2700)
 zoom = Vector2(1.1, 1.1)
 script = ExtResource("2_ys5jr")
