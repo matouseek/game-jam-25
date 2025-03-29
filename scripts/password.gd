@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var travelling_back : bool = false
+var travelling_back: bool
 
 const MAX_STATE: int = 3
 
@@ -17,6 +17,8 @@ var PASSWD_VALUE : String = "9999999999"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Control/PasswordLineEdit.text_submitted.connect(change_global_state)
+	
+	travelling_back = GM.travelling_back
 	
 	if travelling_back:
 		rewrite_text_for_travelling_back()
@@ -42,6 +44,9 @@ func uncover_label(state : int, text : String) -> void:
 		0:
 			tween_label($Control.get_child(state) as Label)
 		1:
+			if (travelling_back && text == PASSWD_VALUE):
+				GM.level_completed.emit()
+				return
 			var tween := await tween_label($Control.get_child(state) as Label)
 			await tween.finished
 			tween_label(PASSWD_INSTRUCT_2)
@@ -71,7 +76,10 @@ func end_minigame() -> void:
 	GM.level_completed.emit()
 
 func rewrite_text_for_travelling_back():
-	$Control/RecommendedPasswordLabel.text = "The recommended password is: \"zero\""
+	CHANGE_PASSWORD.text = "You need to change your ships password"
+	$Control/PasswordLineEdit.placeholder_text = "new password"
+	
+	$Control/RecommendedPasswordLabel.text = "The recommended password is: zero"
 	
 	$Control/PasswordWeakLabel.text = "Password Strength: 10/10"
 	$Control/PasswordWeakLabel.modulate.r = 0
