@@ -1,55 +1,101 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbfjxyang73w2"]
+[gd_scene load_steps=6 format=3 uid="uid://bbfjxyang73w2"]
 
 [ext_resource type="Script" path="res://scripts/sacrifice.gd" id="1_3ju5s"]
 [ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="2_deso3"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="3_xdwaq"]
+[ext_resource type="Texture2D" uid="uid://cw8af07bdwwv3" path="res://assets/cliff/CliffUp.jpg" id="4_74udx"]
+[ext_resource type="Texture2D" uid="uid://bp46irirym8dm" path="res://assets/cliff/CliffDown.jpg" id="4_y132j"]
 
 [node name="Sacrifice" type="Node2D"]
 script = ExtResource("1_3ju5s")
 
-[node name="People" type="Node2D" parent="."]
+[node name="Falling" type="Node2D" parent="."]
+visible = false
 
-[node name="person1" type="Sprite2D" parent="People"]
+[node name="Background1" type="TextureRect" parent="Falling"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_74udx")
+
+[node name="People" type="Node2D" parent="Falling"]
+
+[node name="person1" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person2" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person1"]
+
+[node name="person2" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person3" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person2"]
+
+[node name="person3" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person4" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person3"]
+
+[node name="person4" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person5" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person4"]
+
+[node name="person5" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person6" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person5"]
+
+[node name="person6" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person7" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person6"]
+
+[node name="person7" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person8" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person7"]
+
+[node name="person8" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="person9" type="Sprite2D" parent="People"]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person8"]
+
+[node name="person9" type="Sprite2D" parent="Falling/People"]
 texture = ExtResource("2_deso3")
 
-[node name="Hud" parent="." instance=ExtResource("3_xdwaq")]
+[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/person9"]
 
-[node name="Natives" type="Label" parent="."]
+[node name="Prolog" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Prolog"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_y132j")
+
+[node name="Hud" parent="Prolog" instance=ExtResource("3_xdwaq")]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Ship" type="Label" parent="Prolog"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1332.0
 offset_top = 600.0
 offset_right = 1510.0
 offset_bottom = 623.0
-text = "How many to sacrifice?"
+text = "RANDOM NATIVES TEXT"
 
-[node name="Ship" type="Label" parent="."]
+[node name="Natives" type="Label" parent="Prolog"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 113.0
 offset_top = 75.0
 offset_right = 226.0
 offset_bottom = 98.0
-text = "WHat about 1?"
+text = "RANDOM SHIP TEXT"
+
+[node name="ShipSprite" type="Sprite2D" parent="Prolog"]
+position = Vector2(1958, 1022)
+scale = Vector2(-5.39783, 0.583028)
+texture = ExtResource("2_deso3")
+
+[node name="ShipEndPlace" type="Marker2D" parent="Prolog"]
+position = Vector2(1308, 1032)
