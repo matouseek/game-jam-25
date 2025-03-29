@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/cutscenes/camera_2d.gd" id="2_ys5jr"]
 [ext_resource type="Texture2D" uid="uid://cc8olew1dxxwc" path="res://assets/intro/clouds.png" id="3_exyhn"]
 [ext_resource type="Texture2D" uid="uid://d0d4sk4q5ear7" path="res://assets/intro/hill_1.png" id="3_yu7gc"]
-[ext_resource type="Texture2D" uid="uid://ce7cxyvmd3mol" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
+[ext_resource type="Texture2D" uid="uid://d2oichtnwod01" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
 [ext_resource type="Texture2D" uid="uid://dma6qc1qyelr8" path="res://assets/intro/small_house.png" id="6_6ngc5"]
 [ext_resource type="Texture2D" uid="uid://cyuej4sdox75e" path="res://assets/intro/houses_background.png" id="6_y0awf"]
 [ext_resource type="Texture2D" uid="uid://2u6g7d4gsf06" path="res://assets/intro/big_house.png" id="7_wrrcc"]
