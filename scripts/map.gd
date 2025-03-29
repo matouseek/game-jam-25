@@ -8,7 +8,7 @@ var icons : Array[TextureRect]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NextButton.button_down.connect(func() : GM.map_completed.emit())
+	$NextButton.pressed.connect(func() : GM.map_completed.emit())
 	%CurrentLevel.text = "current: " + str(GM.current_level)
 	prep_icons()
 	set_icon_colors()
