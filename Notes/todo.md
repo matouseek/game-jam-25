@@ -17,6 +17,7 @@
 ## Janek
 
 - [ ] shooting balls minigame
+- [ ] prepare icons for texture buttons (1..9 and N)
 
 ## Matous
 
@@ -24,8 +25,11 @@
 
 ## Vladik
 
-- [ ] fade-in/out
+- [x] fade-in/out
   -  minigame -> map OR map -> minigame
+
+- [ ] change buttons to texture buttons
+- [ ] make hud reacting on hover above button
 
 ## Stepan
 
