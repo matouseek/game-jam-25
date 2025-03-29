@@ -26,13 +26,13 @@ func _ready() -> void:
 # loads map scene and increases the current level count
 func switch_to_map() -> void:
 	current_level += 1
-	fading(MAP_SCENE_PATH)
+	fade_to_scene(MAP_SCENE_PATH)
 
 # TODO: fade in/out
 func load_level() -> void:
-	fading(PATH_TO_SCENES + SCENES[current_level])
+	fade_to_scene(PATH_TO_SCENES + SCENES[current_level])
 	
-func fading(scene) -> void:
+func fade_to_scene(scene : String) -> void:
 	fade.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(fade,"color:a",1,TIME)
