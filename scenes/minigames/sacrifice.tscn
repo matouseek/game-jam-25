@@ -39,6 +39,7 @@ texture = ExtResource("2_deso3")
 [node name="Hud" parent="." instance=ExtResource("3_xdwaq")]
 
 [node name="Natives" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1332.0
 offset_top = 600.0
 offset_right = 1510.0
@@ -46,6 +47,7 @@ offset_bottom = 623.0
 text = "How many to sacrifice?"
 
 [node name="Ship" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 113.0
 offset_top = 75.0
 offset_right = 226.0

@@ -8,8 +8,6 @@ func _ready() -> void:
 	people = $People.get_children()
 	spread_people()
 	$Hud.digit_pressed.connect(sacrifice)
-	$Natives.modulate = Color(0,0,0,0)
-	$Ship.modulate = Color(0,0,0,0)
 	var tween = get_tree().create_tween()
 	tween.tween_property($Natives, "modulate:a", 1, DIALOG_TIME)
 	await  tween.finished
@@ -30,7 +28,7 @@ func spread_people():
 		sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
-	var tween = get_tree().create_tween()
+	var tween# = get_tree().create_tween()
 	for i in range(to_sacrifice):
 		tween = get_tree().create_tween()
 		var sprite = people[i] as Sprite2D
