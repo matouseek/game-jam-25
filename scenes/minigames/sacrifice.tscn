@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbfjxyang73w2"]
+[gd_scene load_steps=8 format=3 uid="uid://bbfjxyang73w2"]
 
 [ext_resource type="Script" path="res://scripts/sacrifice.gd" id="1_3ju5s"]
 [ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="2_deso3"]
+[ext_resource type="PackedScene" uid="uid://b6vn2ub22e85j" path="res://scenes/person.tscn" id="3_ix5le"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="3_xdwaq"]
 [ext_resource type="Texture2D" uid="uid://cw8af07bdwwv3" path="res://assets/cliff/CliffUp.jpg" id="4_74udx"]
 [ext_resource type="Texture2D" uid="uid://bp46irirym8dm" path="res://assets/cliff/CliffDown.jpg" id="4_y132j"]
@@ -23,91 +24,39 @@ texture = ExtResource("4_74udx")
 
 [node name="People" type="Node2D" parent="Falling"]
 
-[node name="Person1" type="Area2D" parent="Falling/People"]
+[node name="Person" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(818, 416)
 
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person1"]
+[node name="Person2" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(735, 422)
 
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person1"]
-texture = ExtResource("2_deso3")
+[node name="Person3" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(655, 409)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person1"]
+[node name="Person4" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(572, 422)
 
-[node name="Person2" type="Area2D" parent="Falling/People"]
+[node name="Person5" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(496, 403)
 
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person2"]
+[node name="Person6" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(420, 426)
 
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person2"]
-texture = ExtResource("2_deso3")
+[node name="Person7" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(341, 398)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person2"]
+[node name="Person8" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(267, 430)
 
-[node name="Person3" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person3"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person3"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person3"]
-
-[node name="Person4" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person4"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person4"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person4"]
-
-[node name="Person5" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person5"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person5"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person5"]
-
-[node name="Person6" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person6"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person6"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person6"]
-
-[node name="Person7" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person7"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person7"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person7"]
-
-[node name="Person8" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person8"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person8"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person8"]
-
-[node name="Person9" type="Area2D" parent="Falling/People"]
-
-[node name="Zmrd" type="AudioStreamPlayer" parent="Falling/People/Person9"]
-
-[node name="Sprite" type="Sprite2D" parent="Falling/People/Person9"]
-texture = ExtResource("2_deso3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/People/Person9"]
+[node name="Person9" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(189, 422)
 
 [node name="CliffEnd" type="Area2D" parent="Falling"]
+position = Vector2(895, 340)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/CliffEnd"]
-position = Vector2(873, 335)
 shape = SubResource("RectangleShape2D_qvg0h")
 
 [node name="Prolog" type="Node2D" parent="."]

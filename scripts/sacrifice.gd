@@ -16,7 +16,6 @@ var ship_dialog : Array[String] = ["Greetings people of the wild! What do you wi
 func _ready() -> void:
 	GM.travelling_back = false
 	people = $Falling/People.get_children()
-	spread_people()
 	hud.digit_pressed.connect(sacrifice)
 	if (GM.travelling_back): travel_back()
 	else: first_time()
@@ -73,39 +72,29 @@ func ship_arrive(ship : Sprite2D, end_location : Node2D):
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func spread_people():
-	#var chunk_size : float = get_viewport().size.x / (len(people) + 1)
-	var chunk_size : float = float(GM.WINDOW_WIDTH) / (len(people) + 1)
-	var current_pos : float = chunk_size
-	var TOP_OFFSET = 1/4.0
-	var y =  get_viewport().size.y * TOP_OFFSET 
-	for p in people:
-		var sprite = p as Area2D
-		sprite.position.x = current_pos
-		current_pos += chunk_size
-		sprite.position.y = y
+#func spread_people():
+	##var chunk_size : float = get_viewport().size.x / (len(people) + 1)
+	#var chunk_size : float = float(GM.WINDOW_WIDTH) / (len(people) + 1)
+	#var current_pos : float = chunk_size
+	#var TOP_OFFSET = 1/4.0
+	#var y =  get_viewport().size.y * TOP_OFFSET 
+	#for p in people:
+		#var sprite = p as Area2D
+		#sprite.position.x = current_pos
+		#current_pos += chunk_size
+		#sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
 	if to_sacrifice >= 1:
 		$Prolog.visible = false
 		$Falling.visible = true
-		var tween
 		hud.process_mode = Node.PROCESS_MODE_DISABLED
 		var hud_tween = get_tree().create_tween()
 		hud_tween.tween_property(hud, "modulate:a", 0, 0.5)
 		hud_tween.tween_callback(func(): hud.visible = false)
 		for i in range(to_sacrifice):
-			var sfx_zmrd := people[i].get_child(0) as AudioStreamPlayer
-			sfx_zmrd.pitch_scale += randf_range(-0.1, 0.3)
-			sfx_zmrd.stream = load("res://assets/sfx/screaming_falling.mp3") as AudioStream
-			sfx_zmrd.play(randf_range(0.0, 0.3))
-			tween = get_tree().create_tween()
-			var sprite = people[i] as Area2D
-			tween.tween_property(sprite, "position", Vector2(sprite.position.x, 500), SACRIFICE_TIME)
-			tween.parallel().tween_property(sprite, "modulate", Color.RED, SACRIFICE_TIME)
-			tween.parallel().tween_property(sprite, "scale", Vector2(), SACRIFICE_TIME)
-			
-			await get_tree().create_timer(0.1).timeout
-		await tween.finished
+			var sprite = people[i] as Person
+			sprite.walk(150)
+		await get_tree().create_timer(5).timeout
 	GM.level_completed.emit()
 		
