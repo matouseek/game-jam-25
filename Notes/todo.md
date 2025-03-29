@@ -28,6 +28,7 @@
   - make shots load with corresponding picture
   - create targets
   - [ ] implement travelling back
+  - [ ] add shooting with space label
 
 ## Matous
 

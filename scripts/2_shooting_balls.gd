@@ -2,20 +2,30 @@ extends Node2D
 
 var bullet_scene = preload("res://scenes/minigames/shooting_balls/bullet.tscn")
 
-@onready var hud = $Hud
+@onready var hud = $Hud as Hud
 @onready var cannon = $Cannon
 @onready var targets = $Targets
 @onready var target_count = targets.get_child_count()
 
-@onready var current_layout_arr = hud.layouts.get(hud.current_layout)
-@onready var selected_ammo : int =  current_layout_arr[len(current_layout_arr)-1]
+var selected_ammo : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hud.digit_pressed.connect(hud_button_press)
+	setup_layout()
 	connect_to_targets()
 	mark_selected_ammo_button(selected_ammo)
 
+# setup layout based on travelling direction
+func setup_layout():
+	if GM.travelling_back:
+		hud.current_layout = hud.Layout.ZERO
+	else:
+		hud.current_layout = hud.Layout.NOT_SOLVABLE
+	var layout_arr = hud.layouts.get(hud.current_layout)
+	selected_ammo = layout_arr[len(layout_arr)-1]
+	hud.setup(layout_arr) # refresh Hud to take changes into account
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	set_cannon_direction()
@@ -30,6 +40,7 @@ func mark_selected_ammo_button(new_digit : int):
 
 
 func hud_button_press(new_digit : int):
+	print("button pressed")
 	mark_selected_ammo_button(new_digit) 
 	selected_ammo = new_digit # select new ammo
 
