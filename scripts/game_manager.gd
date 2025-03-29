@@ -58,11 +58,11 @@ func _on_back_pressed() -> void:
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	sfx.volume_db = value
+	sfx.volume_db = linear_to_db(value)
 
 
 func _on_music_volume_value_changed(value: float) -> void:
-	music.volume_db = value
+	music.volume_db = linear_to_db(value)
 
 func play_music(name: String):
 	music.stream = load(name) as AudioStream

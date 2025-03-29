@@ -68,10 +68,9 @@ offset_right = 216.0
 offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = -20.0
-max_value = 0.0
-step = 0.2
-value = -5.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="Back" type="Button" parent="Menu"]
 anchors_preset = 8
