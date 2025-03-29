@@ -1,34 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://hviaqnalnha7"]
+[gd_scene load_steps=3 format=3 uid="uid://hviaqnalnha7"]
 
 [ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="1_nycry"]
 [ext_resource type="Script" path="res://scripts/zeroland.gd" id="1_pevh3"]
-[ext_resource type="Texture2D" uid="uid://jcwjg8nsuc0k" path="res://assets/icon_green.svg" id="2_erfc8"]
-[ext_resource type="Texture2D" uid="uid://urrf1pif5xgn" path="res://assets/icon_red.svg" id="3_1ql2t"]
-[ext_resource type="Texture2D" uid="uid://c6togn4of8yj8" path="res://assets/icon_yellow.svg" id="4_rf6u5"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4moxt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_nycry")
-}, {
-"duration": 0.5,
-"texture": ExtResource("2_erfc8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1ql2t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_rf6u5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.2
-}]
 
 [node name="Zeroland" type="Node2D"]
 script = ExtResource("1_pevh3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_4moxt")
-autoplay = "default"
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 646.0
+texture = ExtResource("1_nycry")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(146, 84)
+zoom = Vector2(4, 4)
