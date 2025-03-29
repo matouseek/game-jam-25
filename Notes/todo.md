@@ -31,7 +31,7 @@
   - [x] add shooting with space label
   - [x] implement delay before shots
   - [x] move cannon by arrows
-  - [ ] add moving enemies up and down
+  - [x] add moving enemies up and down
 
 ## Matous
 
