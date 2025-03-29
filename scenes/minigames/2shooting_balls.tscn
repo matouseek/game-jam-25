@@ -35,3 +35,6 @@ theme_override_font_sizes/font_size = 50
 text = "Press Space to Shoot
 W and S to Rotate Cannon"
 horizontal_alignment = 1
+
+[node name="BallsStack" type="Node2D" parent="."]
+position = Vector2(233, 548)

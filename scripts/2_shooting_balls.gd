@@ -23,9 +23,15 @@ const CANNON_ROT_SPEED : float = PI / 100
 const CANNON_ROT_DOWN_LIM : float = 0
 const CANNON_ROT_UP_LIM : float = - PI / 2
 
+# balls to shoot
+const MAX_BALL_WEIGHT = 9
+const BALLS_QUEUE_SIZE = 2
+const BALL_QUEUE_OFFSET = GM.WINDOW_WIDTH / 10.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_shot_timer()
+	setup_balls_to_shoot()
 	hud.digit_pressed.connect(hud_button_press)
 	setup_layout()
 	connect_to_targets()
@@ -33,6 +39,37 @@ func _ready():
 	tween_label()
 	
 
+func setup_balls_to_shoot():
+	for i in range(BALLS_QUEUE_SIZE):
+		append_bullet_to_stack()
+
+func tween_bullet_to_stack():
+	var bullet = append_bullet_to_stack()
+	bullet.position.x -= BALL_QUEUE_OFFSET
+	var tween = get_tree().create_tween()
+	tween.tween_property(bullet, "position", Vector2(bullet.position.x+BALL_QUEUE_OFFSET,bullet.position.y), SHOT_DELAY)
+	
+
+func append_bullet_to_stack():
+	var bullet : Bullet = bullet_scene.instantiate() as Bullet
+	bullet.position.x -= $BallsStack.get_child_count() * BALL_QUEUE_OFFSET
+	bullet.digit = randi_range(1,MAX_BALL_WEIGHT)
+	$BallsStack.add_child(bullet)
+	return bullet
+
+func delete_oldest_bullet_from_stack():
+	$BallsStack.get_child(0).free()
+
+func tween_balls():
+	var tween
+	for ball in $BallsStack.get_children():
+		tween = get_tree().create_tween()
+		tween.tween_property(ball, "position", Vector2(ball.position.x+BALL_QUEUE_OFFSET,ball.position.y), SHOT_DELAY)
+	await tween
+	delete_oldest_bullet_from_stack()
+	tween_bullet_to_stack()
+	
+	
 func setup_shot_timer():
 	shot_timer = Timer.new()
 	shot_timer.wait_time = SHOT_DELAY
@@ -62,7 +99,6 @@ func mark_selected_ammo_button(new_digit : int):
 	
 	var new_butt = hud.buttons.get_child(new_digit) as TextureButton
 	new_butt.texture_normal = load(hud.HOVER_ICON + str(new_digit) + ".png")	
-
 
 func hud_button_press(new_digit : int):
 	mark_selected_ammo_button(new_digit) 
@@ -101,11 +137,12 @@ func shoot(digit_to_shoot : float):
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
 		bullet.position = cannon.position
-		var mouse_pos : Vector2 = get_global_mouse_position()
 		bullet.direction = Vector2(cos(cannon.rotation),sin(cannon.rotation))
+		digit_to_shoot = $BallsStack.get_child(0).digit
 		bullet.digit = digit_to_shoot
 		bullet.start_flying()
 		get_tree().current_scene.add_child(bullet)
+		tween_balls()
 	else:
 		pass #TODO: add shot impossible sound
 
