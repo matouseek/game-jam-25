@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const PATH_TO_SCENES := "res://scenes/minigames/" 
-const SCENES := ["0math_formulas.tscn","1sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
+const SCENES := ["0math_formulas.tscn","sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
