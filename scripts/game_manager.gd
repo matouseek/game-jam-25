@@ -59,17 +59,18 @@ func fade_to_scene(scene : String) -> void:
 	await tween.finished
 	fade.visible = false
 
-func menu_toggle(show: bool) -> void:
-	if !show: get_tree().current_scene.visible = true
-	$AudioMenu.visible = show
+func menu_toggle() -> void:
+	if (get_tree().current_scene.name == "MainMenu"):
+			get_tree().current_scene.visible = !get_tree().current_scene.visible
+	$AudioMenu.visible = !$AudioMenu.visible
 	
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu"): menu_toggle(!$AudioMenu.visible)
+	if event.is_action_pressed("Menu"): menu_toggle()
 	
 
 func _on_back_pressed() -> void:
-	menu_toggle(false)
+	menu_toggle()
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
