@@ -18,12 +18,15 @@ texture = ExtResource("3_2kry5")
 
 [node name="Target" parent="Targets" instance=ExtResource("4_t73cc")]
 position = Vector2(1616, 769)
+scale = Vector2(0.15, 0.15)
 
 [node name="Target2" parent="Targets" instance=ExtResource("4_t73cc")]
 position = Vector2(1612, 204)
+scale = Vector2(0.15, 0.15)
 
 [node name="Target3" parent="Targets" instance=ExtResource("4_t73cc")]
 position = Vector2(1617, 484)
+scale = Vector2(0.15, 0.15)
 
 [node name="SpaceToShoot" type="Label" parent="."]
 offset_left = 68.0

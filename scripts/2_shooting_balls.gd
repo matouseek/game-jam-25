@@ -2,7 +2,7 @@ extends Node2D
 
 var bullet_scene = preload("res://scenes/minigames/shooting_balls/bullet.tscn")
 
-@onready var hud = $Hud as Hud
+@onready var hud = $Hud
 @onready var cannon = $Cannon
 @onready var targets = $Targets
 @onready var target_count = targets.get_child_count()

@@ -45,7 +45,7 @@ func uncover_label(state : int, text : String) -> void:
 			tween_label($Control.get_child(state) as Label)
 		1:
 			if (travelling_back && text == PASSWD_VALUE):
-				GM.level_completed.emit()
+				end_minigame()
 				return
 			var tween := await tween_label($Control.get_child(state) as Label)
 			await tween.finished
@@ -54,25 +54,23 @@ func uncover_label(state : int, text : String) -> void:
 			if (text != PASSWD_VALUE):
 				STATE -= 1
 				return
-				
-			for i in range(MAX_STATE):
-				($Control.get_child(i) as Label).visible = false
-			
-			CHANGE_PASSWORD.visible = false
-			PASSWD_INSTRUCT_2.visible = false
-			
-			var l : Label = $Control.get_child(state) as Label
-			l.visible = true
-			
-			var timer := get_tree().create_timer(TIME_BEFORE_TWEEN)
-			
-			await timer.timeout
-			
 			end_minigame()
 		_:
 			print(GM.STANDARD_ERROR_MESSAGE + " se stavem " + str(state))
 
 func end_minigame() -> void:
+	for i in range(MAX_STATE):
+		($Control.get_child(i) as Label).visible = false
+			
+	CHANGE_PASSWORD.visible = false
+	PASSWD_INSTRUCT_2.visible = false
+			
+	var l : Label = $Control.get_child(2) as Label
+	l.visible = true
+			
+	var timer := get_tree().create_timer(TIME_BEFORE_TWEEN)
+			
+	await timer.timeout
 	GM.level_completed.emit()
 
 func rewrite_text_for_travelling_back():
