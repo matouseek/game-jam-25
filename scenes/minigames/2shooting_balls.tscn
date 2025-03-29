@@ -1,14 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqw728k12ikls"]
+[gd_scene load_steps=5 format=3 uid="uid://dqw728k12ikls"]
 
 [ext_resource type="Script" path="res://scripts/2_shooting_balls.gd" id="1_rrlqu"]
+[ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="2_qnxef"]
+[ext_resource type="Texture2D" uid="uid://ba4veqou72bkp" path="res://assets/shooting_balls/cannon.png" id="3_2kry5"]
+[ext_resource type="PackedScene" uid="uid://bfuxg75qbvyw" path="res://scenes/minigames/shooting_balls/target.tscn" id="4_t73cc"]
 
 [node name="2ShootingBalls" type="Node2D"]
 script = ExtResource("1_rrlqu")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 374.0
-offset_top = 259.0
-offset_right = 577.0
-offset_bottom = 290.0
-scale = Vector2(1.91982, 3.65491)
-text = "Shooting balls completed"
+[node name="Hud" parent="." instance=ExtResource("2_qnxef")]
+current_layout = 2
+
+[node name="Cannon" type="Sprite2D" parent="."]
+position = Vector2(423, 522)
+texture = ExtResource("3_2kry5")
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("4_t73cc")]
+position = Vector2(1616, 769)
+
+[node name="Target2" parent="Targets" instance=ExtResource("4_t73cc")]
+position = Vector2(1612, 204)
+
+[node name="Target3" parent="Targets" instance=ExtResource("4_t73cc")]
+position = Vector2(1617, 484)
