@@ -2,7 +2,7 @@ extends Node2D
 
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
-const DIALOG_TIME : float = 0.5
+const DIALOG_TIME : float = 2.0
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
 @onready var ship = $Prolog/Ship
@@ -14,7 +14,6 @@ var ship_dialog : Array[String] = ["Greetings people of the wild! What do you wi
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GM.travelling_back = false
 	people = $Falling/People.get_children()
 	hud.digit_pressed.connect(sacrifice)
 	if (GM.travelling_back): travel_back()
