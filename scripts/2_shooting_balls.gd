@@ -21,7 +21,7 @@ func setup_layout():
 	if GM.travelling_back:
 		hud.current_layout = hud.Layout.ZERO
 	else:
-		hud.current_layout = hud.Layout.NOT_SOLVABLE
+		hud.current_layout = hud.Layout.BASE
 	var layout_arr = hud.layouts.get(hud.current_layout)
 	selected_ammo = layout_arr[len(layout_arr)-1]
 	hud.setup(layout_arr) # refresh Hud to take changes into account
@@ -69,6 +69,5 @@ func shoot(digit_to_shoot : float):
 	bullet.position = cannon.position
 	var mouse_pos : Vector2 = get_global_mouse_position()
 	bullet.direction = (mouse_pos - bullet.position).normalized()
-	bullet.digit = digit_to_shoot
-	bullet.rotation
+	bullet.start_flying(digit_to_shoot)
 	get_tree().current_scene.add_child(bullet)

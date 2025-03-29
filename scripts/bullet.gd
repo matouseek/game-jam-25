@@ -2,29 +2,38 @@ extends Area2D
 
 class_name Bullet
 
-const INIT_SPEED = 50
+const INIT_SPEED_BASE = 27 # hero strength
+const GRAVITY = 0.45
+const POWER_SCALE = 2 # penalty for each weight increase
 
 var direction = Vector2.ZERO
-
 var velocity : Vector2 = Vector2.ZERO
-
+var speed = 0
 var digit = 0
+
+var flying : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity.y = direction.y * INIT_SPEED
-	velocity.x = direction.x * INIT_SPEED
 	pass # Replace with function body.
 
-
+func start_flying(digit_to_shoot : int):
+	var init_speed : float = get_init_speed(digit_to_shoot) 
+	print(init_speed)
+	velocity.y = direction.y * init_speed
+	velocity.x = direction.x * init_speed
+	speed = init_speed
+	flying = true
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta : float):
-	check_out_of_bounds_down()
-	move()
+	if flying:
+		check_out_of_bounds_down()
+		move()
 
 func move():
-	velocity.y += weight_from_digit(digit)
-	position.x += INIT_SPEED * direction.x
+	velocity.y += GRAVITY
+	position.x += velocity.x
 	position.y += velocity.y 
 
 func check_out_of_bounds_down():
@@ -32,5 +41,5 @@ func check_out_of_bounds_down():
 	if position.y > GM.WINDOW_HEIGHT + height_offset:
 		queue_free()
 
-func weight_from_digit(digt : int):
-	return digt
+func get_init_speed(digit_to_shoot : int) -> float:
+	return INIT_SPEED_BASE - (digit_to_shoot * POWER_SCALE)
