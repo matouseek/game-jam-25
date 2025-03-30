@@ -59,6 +59,8 @@ func _ready() -> void:
 	map_completed.connect(switch_to_level)
 	music.volume_db = linear_to_db($Menu/MusicVolume.value)
 	
+	setup_sfx_parent()
+	
 	play_music('res://assets/music/skibidi.mp3')
 	
 
