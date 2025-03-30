@@ -4,6 +4,9 @@
 
 IMPORTANT:
 - [ ] first build
+- [ ] menu
+- [ ] adjust text size
+- [ ] zeroland cinematic
 - [ ] not solvable button text (S)
 - [ ] zeroland scenes (S)
 - [ ] normalize all sounds (V)
@@ -11,6 +14,7 @@ IMPORTANT:
 - [ ] roman numerals on boards (S)
 
 SEMI IMPORTANT:
+- [ ] no guy in from of blackboard
 - [ ] sacrifice message when choosing not 0 or 0 to kill people on way back (A)
 - [ ] sacrifice falling using path2d and tween on path progression (J)
 - [ ] atomic explosion sound (j)
