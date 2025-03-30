@@ -20,7 +20,7 @@ var current_problem : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	travelling_back = GM.travelling_back
+	travelling_back = true#GM.travelling_back
 	
 	if(travelling_back):
 		$Hud.current_layout = $Hud.Layout.ZERO
@@ -44,6 +44,7 @@ func show_problem(i : int):
 func show_result(i : int):
 	var tween : Tween
 	GM.play_sfx(BOARD_SOUND_PATH)
+	disable_hud()
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
@@ -66,7 +67,7 @@ func hide_all(i : int):
 		tween.set_parallel()
 		
 	await tween.finished
-	
+	enable_hud()
 		
 
 func evaluate_button_press(input : int):
@@ -88,3 +89,8 @@ func evaluate_button_press(input : int):
 			await show_result(current_problem - 1)
 			await hide_all(current_problem - 1)
 			await show_problem(current_problem)
+
+func disable_hud(): $Hud.process_mode = Node.PROCESS_MODE_DISABLED
+	
+
+func enable_hud(): $Hud.process_mode = Node.PROCESS_MODE_INHERIT
