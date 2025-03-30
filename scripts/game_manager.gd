@@ -6,6 +6,7 @@ const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## co
 const ZEROLAND_SCENE = "res://scenes/zeroland_scenes/1docking.tscn"
 const MATH_FORMULAS_SCENE = "res://scenes/minigames/0math_formulas.tscn"
 const INTRO_SCENE := "res://scenes/cutscenes/intro.tscn"
+const END_EXPLOSION_SCENE := "res://scenes/cutscenes/end_scene.tscn"
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
 
@@ -58,6 +59,8 @@ func _ready() -> void:
 	map_completed.connect(switch_to_level)
 	music.volume_db = linear_to_db($Menu/MusicVolume.value)
 	
+	setup_sfx_parent()
+	
 	play_music('res://assets/music/skibidi.mp3')
 	
 
@@ -94,14 +97,19 @@ func switch_to_level() -> void:
 	else:
 		current_level -= 1
 
-func fade_to_scene(scene : String) -> void:
+# fades to scene
+func fade_to_scene(scene : String):
+	fade_to_function(func() : get_tree().change_scene_to_file(scene),FADE_TIME)
+
+# this function can be used to fade to anything, not just scenes
+func fade_to_function(function : Callable, fade_time : float):
 	fade.visible = true
 	var tween : Tween = get_tree().create_tween() # starts right after created
-	tween.tween_property(fade,"color:a",1,FADE_TIME)
+	tween.tween_property(fade,"color:a",1,fade_time)
 	await tween.finished
-	get_tree().change_scene_to_file(scene)
+	function.call()
 	tween = get_tree().create_tween()
-	tween.tween_property(fade,"color:a",0,FADE_TIME)
+	tween.tween_property(fade,"color:a",0,fade_time)
 	await tween.finished
 	fade.visible = false
 
