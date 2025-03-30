@@ -3,7 +3,7 @@ extends Node2D
 const END_GAME_MUSIC = "res://assets/music/nuke_explosion.mp3"
 
 var transition_duration : float = 2
-var bg_duration : float = 2.0
+var bg_duration : float = 1.0
 var current_bg_index: int = 0
 
 @onready var bgs = $BGs
@@ -13,9 +13,11 @@ func _ready():
 	disable_all()
 	GM.play_music(END_GAME_MUSIC)
 	switch_to_bg(0)
-	await get_tree().create_timer(bg_duration).timeout
-	await fade_to_bg(1,transition_duration)
+	for i in range(1,4):
+		await get_tree().create_timer(bg_duration).timeout
+		await fade_to_bg(i,transition_duration)
 	#await get_tree().create_timer(bg_duration).timeout
+	get_tree().quit()
 
 func switch_to_bg(new_ind : int):
 	bgs.get_child(current_bg_index).visible = false
