@@ -69,7 +69,7 @@ func uncover_label(state : int, text : String) -> void:
 			print(GM.STANDARD_ERROR_MESSAGE + " se stavem " + str(state))
 
 func end_minigame() -> void:
-	GM.play_sfx(SUCC_SOUND_PATH)
+	GM.play_sfx(SUCC_SOUND_PATH, 0)
 	for i in range(MAX_STATE):
 		($Control.get_child(i) as Label).visible = false
 			
@@ -116,12 +116,12 @@ func start_shake():
 	
 func play_wrong_passwd():
 	var len : float = (load(WRONG_BUZZER_SOUND_PATH) as AudioStream).get_length()
-	GM.play_sfx(WRONG_BUZZER_SOUND_PATH)
+	GM.play_sfx(WRONG_BUZZER_SOUND_PATH, 0)
 	await get_tree().create_timer(len).timeout
 	
 func play_right_passwd():
 	var len : float = (load(SUCC_SOUND_PATH) as AudioStream).get_length()
-	GM.play_sfx(SUCC_SOUND_PATH)
+	GM.play_sfx(SUCC_SOUND_PATH,0)
 	await get_tree().create_timer(len).timeout
 	
 func incorrent_password():

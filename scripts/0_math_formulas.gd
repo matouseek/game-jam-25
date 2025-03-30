@@ -60,7 +60,7 @@ func show_result(i : int):
 		
 func hide_all(i : int):
 	var tween : Tween
-	GM.play_sfx(WASHING_SOUND_PATH)
+	GM.play_sfx(WASHING_SOUND_PATH,0)
 	if travelling_back:
 		tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
@@ -76,17 +76,17 @@ func hide_all(i : int):
 	
 func play_cheer():
 	var cheer_len : float = (load(CROWD_CHEER_SOUND_PATH) as AudioStream).get_length()
-	GM.play_sfx(CROWD_CHEER_SOUND_PATH)
+	GM.play_sfx(CROWD_CHEER_SOUND_PATH,0)
 	await get_tree().create_timer(cheer_len).timeout
 	
 func play_boo():
 	var boo_len : float = (load(CROWD_BOO_SOUND_PATH) as AudioStream).get_length()
-	GM.play_sfx(CROWD_BOO_SOUND_PATH)
+	GM.play_sfx(CROWD_BOO_SOUND_PATH,0)
 	await get_tree().create_timer(boo_len).timeout
 	
 func play_gasp():
 	var gasp_len : float = (load(CROWD_GASP_SOUND_PATH) as AudioStream).get_length()
-	GM.play_sfx(CROWD_GASP_SOUND_PATH)
+	GM.play_sfx(CROWD_GASP_SOUND_PATH,0)
 	await get_tree().create_timer(gasp_len).timeout
 		
 
