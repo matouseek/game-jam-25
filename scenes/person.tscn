@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0jdsdrxbuty0" path="res://assets/cliff/Running/Running1.png" id="11_pl6ua"]
 [ext_resource type="Texture2D" uid="uid://le00mnadkb1v" path="res://assets/cliff/Running/Running2.png" id="12_21sxc"]
 [ext_resource type="Texture2D" uid="uid://crnv8g2lbtshy" path="res://assets/cliff/Falling/Falling10.png" id="12_ywggt"]
-[ext_resource type="Texture2D" uid="uid://to33ky0nmesf" path="res://assets/cliff/Falling/Falling11.png" id="13_hsxbu"]
+[ext_resource type="Texture2D" uid="uid://ck34a0xx2vp2h" path="res://assets/cliff/Falling/Falling11.png" id="13_hsxbu"]
 [ext_resource type="Texture2D" uid="uid://bek0xfa5id7es" path="res://assets/cliff/Running/Running3.png" id="13_r7y6s"]
 [ext_resource type="Texture2D" uid="uid://d3sa1oybxpxge" path="res://assets/cliff/Falling/Falling12.png" id="14_lhk2l"]
 [ext_resource type="Texture2D" uid="uid://x3bru51epyp" path="res://assets/cliff/Running/Running4.png" id="19_3j7l4"]
@@ -26,7 +26,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_uxg8x")
+"texture": ExtResource("2_br1pv")
 }],
 "loop": true,
 "name": &"default",
@@ -34,25 +34,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_dfvnj")
+"texture": ExtResource("3_0d8s6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_uxg8x")
+"texture": ExtResource("2_br1pv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_djmbo")
+"texture": ExtResource("4_y76iy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_afmk3")
+"texture": ExtResource("5_2vwv6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_41xlk")
+"texture": ExtResource("6_7h8hs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_r4xd2")
+"texture": ExtResource("7_y83fu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_om2vr")
+"texture": ExtResource("8_4d5b3")
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_cnocp")
@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"falling",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -127,10 +127,10 @@ animations = [{
 "texture": ExtResource("10_dj0vh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_4si8n")
+"texture": ExtResource("11_pl6ua")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_qpxcw")
+"texture": ExtResource("12_21sxc")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_r7y6s")
@@ -159,6 +159,7 @@ script = ExtResource("1_vcmnd")
 [node name="Scream" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -22)
 scale = Vector2(0.511441, 0.443479)
 sprite_frames = SubResource("SpriteFrames_mtn36")
 

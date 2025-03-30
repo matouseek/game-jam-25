@@ -27,9 +27,9 @@ var FADE_TIME : float = 0.5
 
 # MUSIC STUFF
 @onready var sfx_parent = $SFXParent
-#@onready var sfx2 : AudioStreamPlayer = $SFXParent/SFX2
-#@onready var sfx3 : AudioStreamPlayer = $SFXParent/SFX3
 @onready var music : AudioStreamPlayer = $Music
+@onready var music_slider = $Menu/VolumeControl/SliderControl/MusicVolume
+@onready var sfx_slider = $Menu/VolumeControl/SliderControl/SFXVolume
 
 # MOUSE CURSOR
 var arrow = load("res://assets/icon.svg")
@@ -54,10 +54,10 @@ func _ready() -> void:
 	print(arachnofobia)
 	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
 	$Fade.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
-	$Menu/UnclickableArea.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
+	#$Menu/UnclickableArea.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
 	level_completed.connect(switch_to_map)
 	map_completed.connect(switch_to_level)
-	music.volume_db = linear_to_db($Menu/MusicVolume.value)
+	music.volume_db = linear_to_db(music_slider.value)
 	
 	setup_sfx_parent()
 	
@@ -66,7 +66,7 @@ func _ready() -> void:
 
 func setup_sfx_parent():
 	for sfx in sfx_parent.get_children():
-		sfx.volume_db = linear_to_db($Menu/SFXVolume.value)
+		sfx.volume_db = linear_to_db(sfx_slider.value)
 
 # sets the cursor to custom one
 func setup_cursor_hover_style():
