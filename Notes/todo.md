@@ -5,7 +5,6 @@
 IMPORTANT:
 - [ ] zeroland scenes (S)
 - [ ] improve end screen (A)
-- [ ] hud not disappearing after click (A)
 
 BONUS:
 - [ ] stickman na sousi na mape
