@@ -92,8 +92,7 @@ func play_gasp():
 
 func evaluate_button_press(input : int):
 	if travelling_back && current_problem == results_back.size() - 1:
-		# TODO: create ending
-		print("EXPLODUJ")
+		GM.fade_to_scene(GM.END_EXPLOSION_SCENE)
 		
 	var result : int
 	if travelling_back:

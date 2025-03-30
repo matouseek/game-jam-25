@@ -12,7 +12,6 @@ script = ExtResource("1_mj5kt")
 
 [node name="Web2" type="Sprite2D" parent="."]
 position = Vector2(0, -1558.98)
-scale = Vector2(1, 1)
 texture = ExtResource("3_whela")
 
 [node name="Web1" type="Sprite2D" parent="."]
