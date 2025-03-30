@@ -2,8 +2,6 @@
 
 ## Together
 
-- [ ] add screenshakes and audio to password minigame (V)
-
 IMPORTANT:
 - [ ] not solvable button text (S)
 - [ ] zeroland scenes (S)
