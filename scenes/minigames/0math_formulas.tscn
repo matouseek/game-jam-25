@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bd4ogapye1fes"]
+[gd_scene load_steps=17 format=3 uid="uid://bd4ogapye1fes"]
 
 [ext_resource type="Script" path="res://scripts/0_math_formulas.gd" id="1_s47m2"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="2_m6gb3"]
+[ext_resource type="Texture2D" uid="uid://dqnvgwdv0kfoo" path="res://assets/intro/blackboardExpl.png" id="3_1bpj3"]
 [ext_resource type="Texture2D" uid="uid://bp6sdwdctgugg" path="res://assets/equations/EqLeft12.png" id="3_h4p7p"]
 [ext_resource type="Texture2D" uid="uid://dsx37jnnsidwf" path="res://assets/equations/EqLeft42.png" id="4_s1tox"]
 [ext_resource type="Texture2D" uid="uid://b4dajmb0tj1k5" path="res://assets/equations/EqLeft33.png" id="5_6kj7o"]
@@ -18,6 +19,11 @@
 
 [node name="MathFormulas" type="Node2D"]
 script = ExtResource("1_s47m2")
+
+[node name="BlackboardExpl" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1bpj3")
 
 [node name="Blackboard" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
