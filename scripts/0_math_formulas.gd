@@ -20,7 +20,7 @@ var current_problem : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	travelling_back = true#GM.travelling_back
+	travelling_back = GM.travelling_back
 	
 	if(travelling_back):
 		$Hud.current_layout = $Hud.Layout.ZERO
