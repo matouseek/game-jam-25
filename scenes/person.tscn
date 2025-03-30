@@ -51,7 +51,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"falling",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,6 +84,7 @@ script = ExtResource("1_vcmnd")
 position = Vector2(16, -22)
 scale = Vector2(0.511441, 0.443479)
 sprite_frames = SubResource("SpriteFrames_mtn36")
+animation = &"falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p4fqk")

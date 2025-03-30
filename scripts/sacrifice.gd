@@ -94,6 +94,7 @@ func sacrifice(to_sacrifice : int):
 		for i in range(to_sacrifice):
 			var sprite = people[i] as Person
 			sprite.run(150)
+			await  get_tree().create_timer(0.05).timeout
 		await get_tree().create_timer(5).timeout
 	GM.level_completed.emit()
 		
