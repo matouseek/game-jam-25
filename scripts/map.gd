@@ -21,7 +21,6 @@ func _ready():
 		await add_ship_to_path(GM.current_level+1,1.0,0.0)
 	#$NextButton.pressed.connect(func() : GM.map_completed.emit())
 	$NextButton.pressed.connect(move_ship_next)
-	%CurrentLevel.text = "current: " + str(GM.current_level)
 	prep_icons()
 	set_icon_colors()
 

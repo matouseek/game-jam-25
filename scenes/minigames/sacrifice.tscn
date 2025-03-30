@@ -21,6 +21,10 @@ offset_bottom = 2160.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_y132j")
 
+[node name="Person" parent="Prolog" instance=ExtResource("3_ix5le")]
+position = Vector2(681, 217)
+scale = Vector2(0.05, 0.05)
+
 [node name="ShipSprite" type="Sprite2D" parent="Prolog"]
 modulate = Color(0.605752, 0.512041, 0.398449, 1)
 position = Vector2(3000, 750)
@@ -32,19 +36,27 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="Ship" type="Label" parent="Prolog"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 1332.0
-offset_top = 600.0
-offset_right = 1510.0
-offset_bottom = 623.0
+offset_left = 980.0
+offset_top = 489.0
+offset_right = 1641.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 42
 text = "RANDOM NATIVES TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Natives" type="Label" parent="Prolog"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 113.0
-offset_top = 75.0
-offset_right = 226.0
-offset_bottom = 98.0
+offset_left = 743.0
+offset_top = 60.0
+offset_right = 1374.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 42
 text = "RANDOM SHIP TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ShipEndPlace" type="Marker2D" parent="Prolog"]
 position = Vector2(1400, 750)
