@@ -16,6 +16,7 @@ var ship_dialog : Array[String] = ["Greetings people of the wild! What do you wi
 func _ready() -> void:
 	people = $Falling/People.get_children()
 	hud.digit_pressed.connect(sacrifice)
+	hud.visible = false
 	if (GM.travelling_back): travel_back()
 	else: first_time()
 
@@ -57,7 +58,7 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	tween = get_tree().create_tween().tween_property(ship, "modulate:a", 1, DIALOG_TIME)
 	
 	await tween.finished
-	
+	hud.visible = true
 	tween = get_tree().create_tween()
 	tween.tween_property(hud, "modulate:a", 1, 0.5)
 
