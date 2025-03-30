@@ -2,7 +2,7 @@ extends Node2D
 
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
-const DIALOG_TIME : float = 0.5
+const DIALOG_TIME : float = 2
 const SHIP_TIME : float = 8
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
@@ -26,14 +26,14 @@ func _ready() -> void:
 	else: first_time()
 
 func first_time():
-	ship_arrive(ship_sprite, ship_end_place)
+	await ship_arrive(ship_sprite, ship_end_place)
 	play_dialog(natives_dialog, ship_dialog)
 
 func travel_back():
 	hud.current_layout = hud.Layout.ZERO
 	hud.setup(hud.layouts[hud.current_layout])
 	
-	ship_arrive(ship_sprite, ship_end_place)
+	await ship_arrive(ship_sprite, ship_end_place)
 	play_dialog(natives_dialog, ship_dialog)
 
 func play_dialog(natives_d : Array[String], ship_d : Array[String]):
@@ -42,7 +42,7 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(natives, "modulate:a", 1, DIALOG_TIME)
-	tween.tween_property(ship, "modulate:a", 1, SHIP_TIME)
+	tween.tween_property(ship, "modulate:a", 1, DIALOG_TIME)
 	
 	await tween.finished
 	
@@ -54,13 +54,13 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	
 	tween = get_tree().create_tween()
 	tween.tween_property(natives, "modulate:a", 1, DIALOG_TIME)
-	tween.tween_property(ship, "modulate:a", 0, SHIP_TIME)
+	tween.tween_property(ship, "modulate:a", 0, DIALOG_TIME)
 	
 	await tween.finished
 	
 	ship.text = ship_d[1]
 	
-	tween = get_tree().create_tween().tween_property(ship, "modulate:a", 1, SHIP_TIME)
+	tween = get_tree().create_tween().tween_property(ship, "modulate:a", 1, DIALOG_TIME)
 	
 	await tween.finished
 	hud.visible = true
@@ -90,6 +90,7 @@ func ship_arrive(ship_sprite : Sprite2D, end_location : Node2D):
 		#sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
+	
 	if to_sacrifice >= 1:
 		if GM.travelling_back:
 				var tween = get_tree().create_tween()
@@ -127,3 +128,6 @@ func sacrifice(to_sacrifice : int):
 		
 		await get_tree().create_timer(3).timeout
 	GM.level_completed.emit()
+	
+	
+func disable_hud(): $Prolog/Hud.process_mode = Node.PROCESS_MODE_DISABLED

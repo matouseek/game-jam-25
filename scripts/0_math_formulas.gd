@@ -115,5 +115,4 @@ func evaluate_button_press(input : int):
 
 func disable_hud(): $Hud.process_mode = Node.PROCESS_MODE_DISABLED
 	
-
 func enable_hud(): $Hud.process_mode = Node.PROCESS_MODE_INHERIT
