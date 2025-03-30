@@ -4,18 +4,13 @@
 
 IMPORTANT:
 - [ ] zeroland scenes (S)
-- [ ] change music (A)
-- [ ] roman numerals on boards (S)
-- [ ] not solvable button text (S)
 - [ ] improve end screen (A)
 - [ ] hud not disappearing after click (A)
 
 BONUS:
-- [ ] stickman na sousi
+- [ ] stickman na sousi na mape
+- [ ] roman numerals on boards (S)
 - [ ] arachnophobia mode
-- [ ] increase text level button size
-- [ ] remove current label from map
-- [ ] cannon change
 
 ## Draw
 
