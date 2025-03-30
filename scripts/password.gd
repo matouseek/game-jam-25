@@ -9,6 +9,8 @@ const MAX_STATE: int = 3
 @onready var CHANGE_PASSWORD : Label = $Control/ChangePasswordLabel
 @onready var PASSWD_INSTRUCT_2 : Label = $Control/PasswordInstructionsLabel2
 
+const WRONG_BUZZER_SOUND_PATH : String = "res://assets/sfx/buzzer.mp3"
+
 const TEXT_TWEEN_DURATION : float = 1
 const TIME_BEFORE_TWEEN : float = 1
 
@@ -43,19 +45,24 @@ func change_global_state(text: String) -> void:
 func uncover_label(state : int, text : String) -> void:
 	match state:
 		0:
-			tween_label($Control.get_child(state) as Label)
-		1:
-			if (travelling_back && text == PASSWD_VALUE):
+			if (text == PASSWD_VALUE):
 				end_minigame()
 				return
+			incorrent_password()
+			tween_label($Control.get_child(state) as Label)
+		1:
+			if (text == PASSWD_VALUE):
+				end_minigame()
+				return
+			incorrent_password()
 			var tween := await tween_label($Control.get_child(state) as Label)
 			await tween.finished
 			tween_label(PASSWD_INSTRUCT_2)
 		2:
 			if (text != PASSWD_VALUE):
+				incorrent_password()
 				STATE -= 1
 				return
-			shaking()
 			end_minigame()
 		_:
 			print(GM.STANDARD_ERROR_MESSAGE + " se stavem " + str(state))
@@ -99,11 +106,20 @@ func shake_screen():
 	$Cam.rotation = max_roll * order * randfn(-1, 1)
 	$Cam.position = Vector2(cam_pos.x+randfn(-1,1.2)*max_shake*order, cam_pos.y+randfn(-1,1.2)*max_shake*order)
 	
-func shaking():
+func start_shake():
 	shake = true
 	var tt = get_tree().create_timer(0.3)
 	await tt.timeout
 	shake = false
+	
+func play_wrong_passwd():
+	var len : float = (load(WRONG_BUZZER_SOUND_PATH) as AudioStream).get_length()
+	GM.play_sfx(WRONG_BUZZER_SOUND_PATH)
+	await get_tree().create_timer(len).timeout
+	
+func incorrent_password():
+	start_shake()
+	play_wrong_passwd()
 	
 func _process(delta: float) -> void:
 	if shake: shake_screen()
