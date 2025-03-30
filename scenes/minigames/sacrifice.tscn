@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sacrifice.gd" id="1_3ju5s"]
 [ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="2_deso3"]
-[ext_resource type="PackedScene" uid="uid://ejh0pen6n247" path="res://scenes/person.tscn" id="3_ix5le"]
+[ext_resource type="PackedScene" path="res://scenes/person.tscn" id="3_ix5le"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="3_xdwaq"]
 [ext_resource type="Texture2D" uid="uid://cw8af07bdwwv3" path="res://assets/cliff/CliffUp.jpg" id="4_74udx"]
 [ext_resource type="Texture2D" uid="uid://bp46irirym8dm" path="res://assets/cliff/CliffDown.jpg" id="4_y132j"]

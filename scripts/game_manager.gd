@@ -3,7 +3,7 @@ extends CanvasLayer
 const PATH_TO_SCENES := "res://scenes/minigames/" 
 const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
-const ZEROLAND_SCENE = "res://scenes/zeroland.tscn"
+const ZEROLAND_SCENE = "res://scenes/zeroland_scenes/1docking.tscn"
 const MATH_FORMULAS_SCENE = "res://scenes/minigames/0math_formulas.tscn"
 
 const MAP_SCENE_PATH := "res://scenes/map.tscn"
@@ -33,6 +33,7 @@ var beam = load("res://assets/icon_red.svg")
 
 # TRAVELLING BACK INDICATOR
 var travelling_back : bool = false
+var ship_back : bool = false
 
 const STANDARD_ERROR_MESSAGE = "Posralo se to nekde"
 
