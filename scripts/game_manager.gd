@@ -61,7 +61,7 @@ func _ready() -> void:
 	
 	setup_sfx_parent()
 	
-	play_music('res://assets/music/skibidi.mp3')
+	play_music('res://assets/music/adventure.mp3')
 	
 
 func setup_sfx_parent():
