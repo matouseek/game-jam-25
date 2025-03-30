@@ -94,7 +94,7 @@ func sacrifice(to_sacrifice : int):
 		hud_tween.tween_callback(func(): hud.visible = false)
 		for i in range(to_sacrifice):
 			var sprite = people[i] as Person
-			sprite.run(150)
+			sprite.run(300)
 		await get_tree().create_timer(5).timeout
 	GM.level_completed.emit()
 		

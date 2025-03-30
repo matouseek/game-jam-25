@@ -21,12 +21,13 @@ func run(spd : float):
 
 func _on_area_entered(area: Area2D) -> void:
 	speed = 0
-	anime.play("falling")
+	anime.play("falling1")
+	await anime.animation_finished
+	anime.play("falling2")
 	scream.pitch_scale += randf_range(-0.1, 0.3)
 	scream.stream = load("res://assets/sfx/screaming_falling.mp3") as AudioStream
 	scream.play(randf_range(0.0, 0.3))
-	await anime.animation_finished
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(position.x, 700), SACRIFICE_TIME)
-	tween.parallel().tween_property(self, "modulate", Color.RED, SACRIFICE_TIME)
-	#tween.parallel().tween_property(self, "scale", Vector2(), SACRIFICE_TIME)
+	tween.tween_property(self, "position", Vector2(position.x, 1500), SACRIFICE_TIME)
+	#tween.parallel().tween_property(self, "modulate", Color.RED, SACRIFICE_TIME)
+	tween.parallel().tween_property(self, "scale", Vector2(0.15,0.15), SACRIFICE_TIME)
