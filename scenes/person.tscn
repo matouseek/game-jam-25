@@ -1,18 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://ejh0pen6n247"]
+[gd_scene load_steps=24 format=3 uid="uid://ejh0pen6n247"]
 
 [ext_resource type="Script" path="res://scripts/person.gd" id="1_vcmnd"]
-[ext_resource type="Texture2D" uid="uid://dgttswsl7bi51" path="res://assets/cliff/Falling/Falling1.png" id="2_br1pv"]
-[ext_resource type="Texture2D" uid="uid://cii04van6usnb" path="res://assets/cliff/Falling/Falling0.png" id="3_0d8s6"]
-[ext_resource type="Texture2D" uid="uid://bjlq5vabipq7o" path="res://assets/cliff/Falling/Falling2.png" id="4_y76iy"]
-[ext_resource type="Texture2D" uid="uid://bwlegciebf5o7" path="res://assets/cliff/Falling/Falling3.png" id="5_2vwv6"]
-[ext_resource type="Texture2D" uid="uid://bpw14fjllyt3o" path="res://assets/cliff/Falling/Falling4.png" id="6_7h8hs"]
-[ext_resource type="Texture2D" uid="uid://bk1olipnxvr6t" path="res://assets/cliff/Falling/Falling5.png" id="7_y83fu"]
-[ext_resource type="Texture2D" uid="uid://cyh0xy80s08dc" path="res://assets/cliff/Falling/Falling6.png" id="8_4d5b3"]
-[ext_resource type="Texture2D" uid="uid://st1xodryh2fh" path="res://assets/cliff/Falling/Falling7.png" id="9_cnocp"]
-[ext_resource type="Texture2D" uid="uid://dejtkyua0604o" path="res://assets/cliff/Running/Running0.png" id="10_dj0vh"]
-[ext_resource type="Texture2D" uid="uid://cuiqmxnmlm201" path="res://assets/cliff/Running/Running1.png" id="11_pl6ua"]
-[ext_resource type="Texture2D" uid="uid://df8djn4c03tdq" path="res://assets/cliff/Running/Running2.png" id="12_21sxc"]
-[ext_resource type="Texture2D" uid="uid://uli0tb2qxdtk" path="res://assets/cliff/Running/Running3.png" id="13_r7y6s"]
+[ext_resource type="Texture2D" uid="uid://ccp18lfrkalff" path="res://assets/cliff/Falling/Falling1.png" id="2_br1pv"]
+[ext_resource type="Texture2D" uid="uid://c7b2v8jlves13" path="res://assets/cliff/Falling/Falling0.png" id="3_0d8s6"]
+[ext_resource type="Texture2D" uid="uid://dme8k8ubqm5ku" path="res://assets/cliff/Falling/Falling2.png" id="4_y76iy"]
+[ext_resource type="Texture2D" uid="uid://b7m5j8sr2ddx" path="res://assets/cliff/Falling/Falling3.png" id="5_2vwv6"]
+[ext_resource type="Texture2D" uid="uid://br4kkg5353hhj" path="res://assets/cliff/Falling/Falling4.png" id="6_7h8hs"]
+[ext_resource type="Texture2D" uid="uid://eadsjapkypwg" path="res://assets/cliff/Falling/Falling5.png" id="7_y83fu"]
+[ext_resource type="Texture2D" uid="uid://clskwgfjxobjg" path="res://assets/cliff/Falling/Falling6.png" id="8_4d5b3"]
+[ext_resource type="Texture2D" uid="uid://bsg3khbvqgqcl" path="res://assets/cliff/Falling/Falling7.png" id="9_cnocp"]
+[ext_resource type="Texture2D" uid="uid://w2a64jkcw0ta" path="res://assets/cliff/Running/Running0.png" id="10_dj0vh"]
+[ext_resource type="Texture2D" uid="uid://jp17jkbnntb1" path="res://assets/cliff/Falling/Falling8.png" id="10_l3ejj"]
+[ext_resource type="Texture2D" uid="uid://cxvxwdmgggm1d" path="res://assets/cliff/Falling/Falling9.png" id="11_cljyx"]
+[ext_resource type="Texture2D" uid="uid://b0jdsdrxbuty0" path="res://assets/cliff/Running/Running1.png" id="11_pl6ua"]
+[ext_resource type="Texture2D" uid="uid://le00mnadkb1v" path="res://assets/cliff/Running/Running2.png" id="12_21sxc"]
+[ext_resource type="Texture2D" uid="uid://crnv8g2lbtshy" path="res://assets/cliff/Falling/Falling10.png" id="12_ywggt"]
+[ext_resource type="Texture2D" uid="uid://to33ky0nmesf" path="res://assets/cliff/Falling/Falling11.png" id="13_hsxbu"]
+[ext_resource type="Texture2D" uid="uid://bek0xfa5id7es" path="res://assets/cliff/Running/Running3.png" id="13_r7y6s"]
+[ext_resource type="Texture2D" uid="uid://d3sa1oybxpxge" path="res://assets/cliff/Falling/Falling12.png" id="14_lhk2l"]
+[ext_resource type="Texture2D" uid="uid://x3bru51epyp" path="res://assets/cliff/Running/Running4.png" id="19_3j7l4"]
+[ext_resource type="Texture2D" uid="uid://bflbo3dvfaaix" path="res://assets/cliff/Running/Running5.png" id="20_l3ejk"]
+[ext_resource type="Texture2D" uid="uid://d3sgicgc0cfwn" path="res://assets/cliff/Running/Running6.png" id="21_ev57w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mtn36"]
 animations = [{
@@ -48,10 +56,71 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_cnocp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l3ejj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cljyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ywggt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hsxbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lhk2l")
 }],
 "loop": false,
 "name": &"falling",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0d8s6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_br1pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y76iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2vwv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7h8hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y83fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4d5b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cnocp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l3ejj")
+}],
+"loop": false,
+"name": &"falling1",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ywggt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hsxbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lhk2l")
+}],
+"loop": false,
+"name": &"falling2",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -65,14 +134,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_r7y6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3j7l4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l3ejk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ev57w")
 }],
 "loop": true,
 "name": &"running",
-"speed": 10.0
+"speed": 14.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4fqk"]
-size = Vector2(64.565, 55.0726)
+size = Vector2(172, 141)
 
 [node name="Person" type="Area2D"]
 collision_mask = 2
@@ -86,6 +164,7 @@ scale = Vector2(0.511441, 0.443479)
 sprite_frames = SubResource("SpriteFrames_mtn36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-217, -1041.5)
 shape = SubResource("RectangleShape2D_p4fqk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -8,64 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bp46irirym8dm" path="res://assets/cliff/CliffDown.jpg" id="4_y132j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvg0h"]
-size = Vector2(18, 206)
+size = Vector2(194, 1001)
 
 [node name="Sacrifice" type="Node2D"]
 script = ExtResource("1_3ju5s")
-
-[node name="Falling" type="Node2D" parent="."]
-
-[node name="Background1" type="TextureRect" parent="Falling"]
-offset_right = 3840.0
-offset_bottom = 2160.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_74udx")
-
-[node name="People" type="Node2D" parent="Falling"]
-
-[node name="Person" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(818, 416)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person2" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(731, 422)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person3" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(651, 409)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person4" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(568, 422)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person5" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(492, 403)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person6" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(416, 426)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person7" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(337, 398)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person8" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(263, 430)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person9" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(185, 422)
-scale = Vector2(0.3, 0.3)
-
-[node name="CliffEnd" type="Area2D" parent="Falling"]
-position = Vector2(982, 340)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/CliffEnd"]
-shape = SubResource("RectangleShape2D_qvg0h")
 
 [node name="Prolog" type="Node2D" parent="."]
 
@@ -101,3 +47,59 @@ text = "RANDOM SHIP TEXT"
 
 [node name="ShipEndPlace" type="Marker2D" parent="Prolog"]
 position = Vector2(1308, 1032)
+
+[node name="Falling" type="Node2D" parent="."]
+visible = false
+
+[node name="Background1" type="TextureRect" parent="Falling"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_74udx")
+
+[node name="People" type="Node2D" parent="Falling"]
+
+[node name="Person" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(289, 509)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person2" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(734, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person3" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(654, 500)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person4" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(571, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person5" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(495, 494)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person6" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(419, 517)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person7" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(340, 489)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person8" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(266, 521)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person9" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(188, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="CliffEnd" type="Area2D" parent="Falling"]
+position = Vector2(982, 340)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/CliffEnd"]
+position = Vector2(4, 172.5)
+shape = SubResource("RectangleShape2D_qvg0h")
