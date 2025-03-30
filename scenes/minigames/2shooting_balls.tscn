@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqw728k12ikls"]
 
 [ext_resource type="Script" path="res://scripts/2_shooting_balls.gd" id="1_rrlqu"]
-[ext_resource type="Texture2D" uid="uid://kfx25fpy6un5" path="res://assets/ship/canon.png" id="2_i5g3r"]
-[ext_resource type="Texture2D" uid="uid://clorlkflnholv" path="res://assets/shooting_balls/shooting_balls_background.png" id="2_p28dm"]
-[ext_resource type="Texture2D" uid="uid://dcwbio810k8n5" path="res://assets/ship/ship.png" id="4_bmaxn"]
+[ext_resource type="Texture2D" uid="uid://ytswjn0vv6b8" path="res://assets/ship/canon.png" id="2_i5g3r"]
+[ext_resource type="Texture2D" uid="uid://6hnf66mxrjdb" path="res://assets/shooting_balls/shooting_balls_background.png" id="2_p28dm"]
+[ext_resource type="Texture2D" uid="uid://dsug4vurvin6n" path="res://assets/ship/ship.png" id="4_bmaxn"]
 [ext_resource type="PackedScene" uid="uid://bfuxg75qbvyw" path="res://scenes/minigames/shooting_balls/target.tscn" id="4_t73cc"]
 
 [node name="2ShootingBalls" type="Node2D"]
