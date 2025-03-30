@@ -125,8 +125,8 @@ func _on_music_finished() -> void:
 	music.play()
 
 func play_sfx(filename : String):
-    sfx.stream = (load(filename) as AudioStream)
-    sfx.play()
+	sfx.stream = (load(filename) as AudioStream)
+	sfx.play()
 
 
 func _on_arach_mode_pressed() -> void:
