@@ -12,6 +12,9 @@ const CROWD_CHEER_SOUND_PATH : String = "res://assets/sfx/crowd_cheer.wav"
 const CROWD_BOO_SOUND_PATH : String = "res://assets/sfx/crowd_boo.wav"
 const CROWD_GASP_SOUND_PATH : String = "res://assets/sfx/crowd_gasp.wav"
 
+const BOARD_EXPLANATION_DURATION : float = 5.0
+const BOARD_FADE_TIME : float = 2.0
+
 const FADE_TIME = 2
 
 var travelling_back : bool
@@ -90,6 +93,10 @@ func play_gasp():
 	await get_tree().create_timer(gasp_len).timeout
 		
 
+func switch_board():
+	$Blackboard.visible = false
+	$BlackboardExpl.visible = true
+
 func evaluate_button_press(input : int):
 	# Button spam protection
 	if current_problem >= results.size():
@@ -108,6 +115,8 @@ func evaluate_button_press(input : int):
 		current_problem += 1
 		if current_problem >= results.size():
 			await play_gasp()
+			await GM.fade_to_function(switch_board,BOARD_FADE_TIME)
+			await get_tree().create_timer(BOARD_EXPLANATION_DURATION).timeout
 			GM.level_completed.emit()
 		else:
 			$Hud.visible = false
