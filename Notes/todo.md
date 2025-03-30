@@ -22,6 +22,7 @@
 IMPORTANT:
 - [ ] not solvable button text
 - [ ] zeroland scenes
+- [ ] doubleclick on next level moves current level by two!!!
 
 ## Janek
 
@@ -39,9 +40,9 @@ IMPORTANT:
 
 - [x] bigger probability of lighter balls
 
-- [ ] ending scene dummies
+- [x] ending scene dummies
 
-- [ ] test comics like clip switching
+- [x] test comics like clip switching
   - zeroland scene
 
 ## Matous
@@ -60,6 +61,8 @@ IMPORTANT:
 
 ## Stepan
 
-- [ ] create storyboard
+- [x] create storyboard
 
 - [x] create button boards
+
+- [ ] draw the ship
