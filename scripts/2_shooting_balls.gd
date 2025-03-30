@@ -36,6 +36,9 @@ const STARTING_BALLS = [3,5,7,2,4,1,9,6,3,1,4,2,1,1,1]
 const PI_DIGS = [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1,6,9,3,9,9,3,7,5,1,0,5,8,2,0,9,7,4,9,4,4,5,9,2,3,0,7,8,1,6,4,0,6,2,8,6,]
 var next_ball = -1
 
+# tween
+var tween : Tween
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_shot_timer()
@@ -107,6 +110,7 @@ func check_targets_destroyed():
 	target_count -= 1
 	GM.play_sfx(SPLASH_SOUND,2)
 	if target_count == 0:
+		tween.kill()
 		GM.level_completed.emit()
 
 func set_cannon_direction():
@@ -149,7 +153,7 @@ func shoot():
 
 func tween_label():
 	space_to_shoot.pivot_offset = space_to_shoot.size * 0.5
-	var tween = get_tree().create_tween()
+	tween = get_tree().create_tween()
 	tween.tween_property(space_to_shoot, "scale", Vector2(MAX_STRETCH,MAX_STRETCH), BLINK_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(space_to_shoot, "scale", Vector2(1.0,1.0), BLINK_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.set_loops()
