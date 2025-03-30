@@ -3,7 +3,7 @@ extends Node2D
 const END_GAME_MUSIC = "res://assets/music/nuke_explosion.mp3"
 
 var transition_duration : float = 2
-var bg_duration : float = 1.0
+var bg_duration : float = 1.1
 var current_bg_index: int = 0
 
 @onready var bgs = $BGs
