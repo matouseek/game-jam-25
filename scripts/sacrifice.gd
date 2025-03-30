@@ -18,6 +18,7 @@ var travell_back_ship_non_zero_response : String = "You could've saved them, we 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GM.travelling_back = true
 	people = $Falling/People.get_children()
 	hud.digit_pressed.connect(sacrifice)
 	hud.visible = false
@@ -90,7 +91,7 @@ func ship_arrive(ship_sprite : Sprite2D, end_location : Node2D):
 		#sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
-	disable_hud()
+	$Prolog/Hud.visible = false
 	if to_sacrifice >= 1:
 		if GM.travelling_back:
 				var tween = get_tree().create_tween()

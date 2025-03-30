@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0jdsdrxbuty0" path="res://assets/cliff/Running/Running1.png" id="11_pl6ua"]
 [ext_resource type="Texture2D" uid="uid://le00mnadkb1v" path="res://assets/cliff/Running/Running2.png" id="12_21sxc"]
 [ext_resource type="Texture2D" uid="uid://crnv8g2lbtshy" path="res://assets/cliff/Falling/Falling10.png" id="12_ywggt"]
-[ext_resource type="Texture2D" uid="uid://0skpw4yy3q4m" path="res://assets/cliff/Falling/Falling11.png" id="13_hsxbu"]
+[ext_resource type="Texture2D" uid="uid://chvcuo7n4rguo" path="res://assets/cliff/Falling/Falling11.png" id="13_hsxbu"]
 [ext_resource type="Texture2D" uid="uid://bek0xfa5id7es" path="res://assets/cliff/Running/Running3.png" id="13_r7y6s"]
 [ext_resource type="Texture2D" uid="uid://d3sa1oybxpxge" path="res://assets/cliff/Falling/Falling12.png" id="14_lhk2l"]
 [ext_resource type="Texture2D" uid="uid://x3bru51epyp" path="res://assets/cliff/Running/Running4.png" id="19_3j7l4"]
