@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbfjxyang73w2"]
 
 [ext_resource type="Script" path="res://scripts/sacrifice.gd" id="1_3ju5s"]
-[ext_resource type="Texture2D" uid="uid://dsug4vurvin6n" path="res://assets/ship/ship.png" id="3_7bpx7"]
+[ext_resource type="Texture2D" uid="uid://bsdbdxui7vbmw" path="res://assets/ship/ship.png" id="3_7bpx7"]
 [ext_resource type="PackedScene" uid="uid://ejh0pen6n247" path="res://scenes/person.tscn" id="3_ix5le"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="3_xdwaq"]
 [ext_resource type="Texture2D" uid="uid://cw8af07bdwwv3" path="res://assets/cliff/CliffUp.jpg" id="4_74udx"]
@@ -20,10 +20,6 @@ offset_right = 3840.0
 offset_bottom = 2160.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_y132j")
-
-[node name="Person" parent="Prolog" instance=ExtResource("3_ix5le")]
-position = Vector2(681, 217)
-scale = Vector2(0.05, 0.05)
 
 [node name="ShipSprite" type="Sprite2D" parent="Prolog"]
 modulate = Color(0.605752, 0.512041, 0.398449, 1)
