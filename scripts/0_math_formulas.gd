@@ -7,6 +7,7 @@ extends Node2D
 @onready var BACK_RESULTS : Node = $Back/Results
 
 const BOARD_SOUND_PATH : String = "res://assets/sfx/board.mp3"
+const WASHING_SOUND_PATH : String = "res://assets/sfx/washing_short.mp3"
 
 const FADE_TIME = 2
 
@@ -55,6 +56,7 @@ func show_result(i : int):
 		
 func hide_all(i : int):
 	var tween : Tween
+	GM.play_sfx(WASHING_SOUND_PATH)
 	if travelling_back:
 		tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
@@ -86,5 +88,6 @@ func evaluate_button_press(input : int):
 			GM.level_completed.emit()
 		else:
 			await show_result(current_problem - 1)
+			await get_tree().create_timer(0.5).timeout
 			await hide_all(current_problem - 1)
 			await show_problem(current_problem)
