@@ -85,13 +85,20 @@ func switch_to_map() -> void:
 		print(STANDARD_ERROR_MESSAGE + " na konci")
 
 func switch_to_level() -> void:
-	if current_level >= len(SCENES): # we have reached zeroland
+	if current_level >= len(SCENES) && not travelling_back: # we have reached zeroland
+		current_level += 1
 		travelling_back = true
 		fade_to_scene(ZEROLAND_SCENE)
 	elif current_level < 0: # we have come back
 		print(STANDARD_ERROR_MESSAGE)
 	else:
-		fade_to_scene(PATH_TO_SCENES + SCENES[current_level])
+		var index = current_level
+		if GM.travelling_back:
+			index -= 1
+		if index == -1:
+			fade_to_scene(MATH_FORMULAS_SCENE)
+		else:
+			fade_to_scene(PATH_TO_SCENES + SCENES[index])
 	if not travelling_back:
 		current_level += 1
 	else:

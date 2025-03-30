@@ -4,12 +4,11 @@
 
 IMPORTANT:
 - [ ] zeroland scenes (S)
+- [ ] While going back on password level the most bottom text should be moved lightlty down
 - [ ] improve end screen (A)
 
 BONUS:
 - [ ] stickman na sousi na mape
-- [ ] roman numerals on boards (S)
-- [ ] arachnophobia mode
 
 ## Draw
 

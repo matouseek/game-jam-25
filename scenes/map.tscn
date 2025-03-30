@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi5snt7xdwt5f"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5snt7xdwt5f"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_xhs4v"]
 [ext_resource type="Texture2D" uid="uid://dm82ipum0aqv3" path="res://assets/map/map.png" id="2_onvq3"]
-[ext_resource type="Texture2D" uid="uid://urrf1pif5xgn" path="res://assets/icon_red.svg" id="2_swisp"]
 
 [sub_resource type="Curve2D" id="Curve2D_erf43"]
 _data = {
@@ -35,44 +34,6 @@ script = ExtResource("1_xhs4v")
 position = Vector2(954, 541)
 scale = Vector2(0.504365, 0.504365)
 texture = ExtResource("2_onvq3")
-
-[node name="LevelIcons" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="0Math" type="TextureRect" parent="LevelIcons"]
-visible = false
-layout_mode = 0
-offset_left = 641.0
-offset_top = 187.0
-offset_right = 769.0
-offset_bottom = 315.0
-texture = ExtResource("2_swisp")
-
-[node name="1Sacrifice" type="TextureRect" parent="LevelIcons"]
-visible = false
-layout_mode = 0
-offset_left = 777.0
-offset_top = 549.0
-offset_right = 905.0
-offset_bottom = 677.0
-texture = ExtResource("2_swisp")
-
-[node name="2ShootingBalls" type="TextureRect" parent="LevelIcons"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 16.128
-anchor_top = 12.773
-anchor_right = 16.128
-anchor_bottom = 12.773
-offset_left = 632.88
-offset_top = 162.08
-offset_right = 760.88
-offset_bottom = 290.08
-texture = ExtResource("2_swisp")
 
 [node name="NextButton" type="Button" parent="."]
 offset_left = 844.0
