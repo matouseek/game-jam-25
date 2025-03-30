@@ -24,6 +24,9 @@ IMPORTANT:
 - [ ] zeroland scenes
 - [ ] doubleclick on next level moves current level by two!!!
 
+SEMI IMPORTANT:
+- [ ] sacrifice message when choosing not 0 or 0 to kill people on way back
+
 ## Janek
 
 - [x] shooting balls minigame

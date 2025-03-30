@@ -1,8 +1,12 @@
 extends Node2D
 
+# ASSETS LOADING
 const BULLET_ICON_PATH = "res://assets/shooting_balls/balls/ball"
 var bullet_scene = preload("res://scenes/minigames/shooting_balls/bullet.tscn")
 
+const CANNON_SOUND = "res://assets/sfx/fireworks.wav"
+
+# ONREADY STUFF
 @onready var cannon = $Cannon
 @onready var targets = $Targets
 @onready var target_count = targets.get_child_count()
@@ -118,9 +122,11 @@ func _input(event):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
+
 # shoots the specified digit, the digit value controls the weight of the bullet
 func shoot():
 	if shot_timer.time_left == 0:
+		GM.play_sfx(CANNON_SOUND)
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
 		bullet.position = cannon.position
