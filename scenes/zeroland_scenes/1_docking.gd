@@ -4,15 +4,16 @@ const worshipping_scene = "res://scenes/zeroland_scenes/2worshiping.tscn"
 
 @onready var camera = $Camera2D
 @export var ride_duration : float = 1
-@export var ship_ride_lenght : float = -800
+@export var ship_ride_fwd_lenght : float = -800
+@export var ship_ride_bckwd_lenght : float = -600
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if not GM.ship_back:
-		await ride_ship(camera.position,Vector2(camera.position.x+ship_ride_lenght,camera.position.y))
+		await ride_ship(camera.position,Vector2(camera.position.x+ship_ride_fwd_lenght,camera.position.y))
 		GM.fade_to_scene(worshipping_scene)
 	else:
-		await ride_ship(Vector2(camera.position.x+ship_ride_lenght,camera.position.y),camera.position)
+		await ride_ship(Vector2(camera.position.x+ship_ride_bckwd_lenght,camera.position.y),camera.position)
 		GM.level_completed.emit()
 
 func ride_ship(start_point,end_point):
