@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Bullet
 
+const PLUNGE_SOUND = "res://assets/sfx/plunge.wav"
+
 const INIT_SPEED_BASE = 29 # hero strength
 const GRAVITY = 0.45
 const POWER_SCALE = 2 # penalty for each weight increase
@@ -37,8 +39,9 @@ func move():
 	position.y += velocity.y 
 
 func check_out_of_bounds_down():
-	var height_offset = 40
+	var height_offset = 20
 	if position.y > GM.WINDOW_HEIGHT + height_offset:
+		GM.play_sfx(PLUNGE_SOUND)
 		queue_free()
 
 func get_init_speed() -> float:
