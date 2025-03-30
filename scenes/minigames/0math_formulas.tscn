@@ -30,44 +30,52 @@ texture = ExtResource("15_uj1km")
 
 [node name="Sprite2D" type="Sprite2D" parent="Forward/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_h4p7p")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Forward/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_s1tox")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Forward/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_6kj7o")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Forward/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_xj7vu")
 
 [node name="Results" type="Node" parent="Forward"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Forward/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_t7x2x")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Forward/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q8jwo")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Forward/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_le58p")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Forward/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("10_gsuj1")
 
 [node name="Back" type="Node" parent="."]
@@ -76,44 +84,52 @@ texture = ExtResource("10_gsuj1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Back/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_xj7vu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Back/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("11_4q43p")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Back/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ebu4x")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Back/Problems"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(785, 613)
+position = Vector2(849.4, 613)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_ms31y")
 
 [node name="Results" type="Node" parent="Back"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Back/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_guser")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Back/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_guser")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Back/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_guser")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Back/Results"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1414, 611)
+position = Vector2(1302.2, 611)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_t7x2x")
 
 [node name="Hud" parent="." instance=ExtResource("2_m6gb3")]
