@@ -1,35 +1,40 @@
 [gd_scene load_steps=8 format=3 uid="uid://bi5snt7xdwt5f"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_xhs4v"]
+[ext_resource type="Texture2D" uid="uid://dh8hu6bj6s4jh" path="res://assets/map/map.png" id="2_onvq3"]
 [ext_resource type="Texture2D" uid="uid://urrf1pif5xgn" path="res://assets/icon_red.svg" id="2_swisp"]
-[ext_resource type="Texture2D" uid="uid://c6togn4of8yj8" path="res://assets/icon_yellow.svg" id="3_k8qq1"]
 
 [sub_resource type="Curve2D" id="Curve2D_erf43"]
 _data = {
-"points": PackedVector2Array(-7.11583, 1.66677, 7.11583, -1.66677, 208, 163, -121.687, -358.206, 121.687, 358.206, 719, 378)
+"points": PackedVector2Array(-7.11583, 1.66677, 7.11583, -1.66677, 208, 163, -14.573, -49.9644, 14.573, 49.9644, 298, 228, 3.46975, -74.2526, -3.46975, 74.2526, 320, 346, -30.5338, -35.3914, 30.5338, 35.3914, 361, 468, -34.0036, 5.5516, 34.0036, -5.5516, 466, 480, -5.5516, 36.0854, 5.5516, -36.0854, 540, 396, -29.8399, 38.1673, 29.8399, -38.1673, 570, 289, -74.1561, -15.2064, 74.1561, 15.2064, 720, 241)
 }
-point_count = 2
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_dv8qn"]
 _data = {
-"points": PackedVector2Array(0.651787, -10.9355, -0.651787, 10.9355, 719, 379, -264.106, 39.22, 264.106, -39.22, 955, 701)
+"points": PackedVector2Array(0.651787, -10.9355, -0.651787, 10.9355, 713, 244, 30.383, -70.2178, -30.383, 70.2178, 751, 345, 12.5656, -32.4326, -12.5656, 32.4326, 675, 482, -4.2411, -18.1171, 4.2411, 18.1171, 666, 588, -14.8308, -19.0219, 14.8308, 19.0219, 690, 633, -18.0064, 4.59738, 18.0064, -4.59738, 737, 666, -12.8344, 9.38632, 12.8344, -9.38632, 804, 643, 0, 0, 0, 0, 832, 611)
 }
-point_count = 2
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_dygct"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 956, 701, 0, 0, 0, 0, 1297, 666)
+"points": PackedVector2Array(0, 0, 0, 0, 831, 612, -24.4458, -24.8339, 24.4458, 24.8339, 873, 651, -16.6852, -9.70073, 16.6852, 9.70073, 942, 695, -17.4613, 2.32817, 17.4613, -2.32817, 1013, 694, 0, 0, 0, 0, 1089, 666, -41.2651, 14.5108, 41.2651, -14.5108, 1162, 631, -11.79, -0.680195, 11.79, 0.680195, 1226, 620, 0, 0, 0, 0, 1261, 632, -19.5819, -21.4537, 19.5819, 21.4537, 1303, 662, 0, 0, 0, 0, 1336, 742)
 }
-point_count = 2
+point_count = 10
 
 [sub_resource type="Curve2D" id="Curve2D_ebp10"]
 _data = {
-"points": PackedVector2Array(-4.60271, 0.901561, 4.60271, -0.901561, 1288, 665, 54.8449, -321.357, -54.8449, 321.357, 1710, 881)
+"points": PackedVector2Array(-4.60271, 0.901561, 4.60271, -0.901561, 1343, 746, -48.5718, -23.248, 48.5718, 23.248, 1414, 788, -19.7885, -7.88773, 19.7885, 7.88773, 1472, 815, -41.5144, -6.78068, 41.5144, 6.78068, 1580, 850, 0, 0, 0, 0, 1658, 878)
 }
-point_count = 2
+point_count = 5
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_xhs4v")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(954, 541)
+scale = Vector2(0.504365, 0.504365)
+texture = ExtResource("2_onvq3")
 
 [node name="CurrentLevel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -48,32 +53,35 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="0Math" type="TextureRect" parent="LevelIcons"]
+visible = false
 layout_mode = 0
-offset_left = 653.0
-offset_top = 306.0
-offset_right = 781.0
-offset_bottom = 434.0
+offset_left = 641.0
+offset_top = 187.0
+offset_right = 769.0
+offset_bottom = 315.0
 texture = ExtResource("2_swisp")
 
 [node name="1Sacrifice" type="TextureRect" parent="LevelIcons"]
+visible = false
 layout_mode = 0
-offset_left = 889.0
-offset_top = 622.0
-offset_right = 1017.0
-offset_bottom = 750.0
+offset_left = 777.0
+offset_top = 549.0
+offset_right = 905.0
+offset_bottom = 677.0
 texture = ExtResource("2_swisp")
 
 [node name="2ShootingBalls" type="TextureRect" parent="LevelIcons"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 16.128
 anchor_top = 12.773
 anchor_right = 16.128
 anchor_bottom = 12.773
-offset_left = 575.88
-offset_top = 85.08
-offset_right = 703.88
-offset_bottom = 213.08
+offset_left = 632.88
+offset_top = 162.08
+offset_right = 760.88
+offset_bottom = 290.08
 texture = ExtResource("2_swisp")
 
 [node name="NextButton" type="Button" parent="."]
@@ -84,20 +92,12 @@ offset_bottom = 1024.0
 scale = Vector2(1.00782, 1.00461)
 text = "Next level"
 
-[node name="Rome" type="Sprite2D" parent="."]
-position = Vector2(195, 149)
-texture = ExtResource("3_k8qq1")
-
-[node name="Zeroland" type="Sprite2D" parent="."]
-position = Vector2(1710, 880)
-texture = ExtResource("3_k8qq1")
-
 [node name="Ship" type="Sprite2D" parent="."]
 
 [node name="Curves" type="Node2D" parent="."]
 
 [node name="Path0" type="Path2D" parent="Curves"]
-position = Vector2(-3, -2)
+position = Vector2(-7, 3)
 curve = SubResource("Curve2D_erf43")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Curves/Path0"]
@@ -108,19 +108,20 @@ rotation = -0.230085
 curve = SubResource("Curve2D_dv8qn")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Curves/Path1"]
-position = Vector2(719, 379)
+position = Vector2(713, 244)
 rotation = 1.63033
 
 [node name="Path3" type="Path2D" parent="Curves"]
+position = Vector2(6, 3)
 curve = SubResource("Curve2D_dygct")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Curves/Path3"]
-position = Vector2(956, 701)
-rotation = -0.102281
+position = Vector2(831, 612)
+rotation = 0.748378
 
 [node name="Path4" type="Path2D" parent="Curves"]
 curve = SubResource("Curve2D_ebp10")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Curves/Path4"]
-position = Vector2(1288, 665)
+position = Vector2(1343, 746)
 rotation = -0.193427
