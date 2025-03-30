@@ -10,8 +10,6 @@ script = ExtResource("1_smr6r")
 visible = false
 color = Color(0, 0, 0, 0)
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
 [node name="Menu" type="Node2D" parent="."]
@@ -83,6 +81,14 @@ offset_right = 283.0
 offset_bottom = 217.0
 text = "Arachnofobia mode
 "
+
+[node name="SFXParent" type="Node2D" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer" parent="SFXParent"]
+
+[node name="SFX2" type="AudioStreamPlayer" parent="SFXParent"]
+
+[node name="SFX3" type="AudioStreamPlayer" parent="SFXParent"]
 
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="value_changed" from="Menu/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
