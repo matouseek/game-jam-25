@@ -91,6 +91,10 @@ func play_gasp():
 		
 
 func evaluate_button_press(input : int):
+	# Button spam protection
+	if current_problem >= results.size():
+		return
+	
 	if travelling_back && current_problem == results_back.size() - 1:
 		GM.fade_to_scene(GM.END_EXPLOSION_SCENE)
 		
