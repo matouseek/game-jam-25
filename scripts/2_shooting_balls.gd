@@ -30,8 +30,8 @@ const CANNON_ROT_UP_LIM : float = - PI / 2
 
 # balls to shoot
 const MAX_BALL_WEIGHT = 9
-const BALLS_QUEUE_SIZE = 2
-const BALL_QUEUE_OFFSET = GM.WINDOW_WIDTH / 10.0
+const BALLS_QUEUE_SIZE = 3
+const BALL_QUEUE_OFFSET = GM.WINDOW_WIDTH / 30.0
 const STARTING_BALLS = [3,5,7,2,4,1,9,6,3,1,4,2,1,1,1]
 const PI_DIGS = [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1,6,9,3,9,9,3,7,5,1,0,5,8,2,0,9,7,4,9,4,4,5,9,2,3,0,7,8,1,6,4,0,6,2,8,6,]
 var next_ball = -1
@@ -124,15 +124,20 @@ func _input(event):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
+func get_cannon_dir_vect():
+	return Vector2(cos(cannon.rotation),sin(cannon.rotation)).normalized()
+
+func get_muzzle_dist_magnitude():
+	return cannon.get_node("Muzzle").position.length()
 
 # shoots the specified digit, the digit value controls the weight of the bullet
 func shoot():
 	if shot_timer.time_left == 0:
-		GM.play_sfx(CANNON_SOUND,0)
+		GM.play_sfx(CANNON_SOUND,0)  
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
-		bullet.position = cannon.position
-		bullet.direction = Vector2(cos(cannon.rotation),sin(cannon.rotation))
+		bullet.position = cannon.position + get_cannon_dir_vect() * get_muzzle_dist_magnitude()
+		bullet.direction = get_cannon_dir_vect()
 		bullet.digit = $BallsStack.get_child(0).digit
 		var sprite = bullet.get_node("Sprite2D")
 		sprite.texture = load(BULLET_ICON_PATH + str(bullet.digit) + ".png")
