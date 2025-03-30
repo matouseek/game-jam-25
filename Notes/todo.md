@@ -5,9 +5,12 @@
 - [ ] add screenshakes and audio to password minigame (V)
 
 IMPORTANT:
+- [ ] first build
 - [ ] not solvable button text (S)
 - [ ] zeroland scenes (S)
 - [ ] normalize all sounds (V)
+- [ ] hud problem (A)
+- [ ] roman numerals on boards (S)
 
 SEMI IMPORTANT:
 - [ ] sacrifice message when choosing not 0 or 0 to kill people on way back (A)
@@ -29,3 +32,4 @@ SEMI IMPORTANT:
 - [ ] map placeholders
 - [ ] final scene with 0/0
 - [ ] password minigame background
+- [ ] roman numerals on boards (S)
