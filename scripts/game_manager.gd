@@ -25,7 +25,9 @@ var FADE_TIME : float = 0.5
 @onready var fade : ColorRect = $Fade
 
 # MUSIC STUFF
-@onready var sfx : AudioStreamPlayer = $SFX
+@onready var sfx_parent = $SFXParent
+#@onready var sfx2 : AudioStreamPlayer = $SFXParent/SFX2
+#@onready var sfx3 : AudioStreamPlayer = $SFXParent/SFX3
 @onready var music : AudioStreamPlayer = $Music
 
 # MOUSE CURSOR
@@ -41,6 +43,9 @@ var arachnofobia : bool = false
 var is_playing : bool = false
 @onready var menu = $Menu
 
+# PHYSICS STUFF
+const GRAVITY : float = 2000
+
 const STANDARD_ERROR_MESSAGE = "Posralo se to nekde"
 
 # Called when the node enters the scene tree for the first FADE_TIME.
@@ -52,9 +57,13 @@ func _ready() -> void:
 	level_completed.connect(switch_to_map)
 	map_completed.connect(switch_to_level)
 	music.volume_db = linear_to_db($Menu/MusicVolume.value)
-	sfx.volume_db = linear_to_db($Menu/SFXVolume.value)
+	
 	play_music('res://assets/music/skibidi.mp3')
 	
+
+func setup_sfx_parent():
+	for sfx in sfx_parent.get_children():
+		sfx.volume_db = linear_to_db($Menu/SFXVolume.value)
 
 # sets the cursor to custom one
 func setup_cursor_hover_style():
@@ -115,7 +124,8 @@ func _on_back_pressed() -> void:
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	sfx.volume_db = linear_to_db(value)
+	for sfx in sfx_parent.get_children():
+		sfx.volume_db = linear_to_db(value)
 
 
 func _on_music_volume_value_changed(value: float) -> void:
@@ -128,7 +138,8 @@ func play_music(filename: String):
 func _on_music_finished() -> void:
 	music.play()
 
-func play_sfx(filename : String):
+func play_sfx(filename : String, index : int):
+	var sfx = sfx_parent.get_child(index) as AudioStreamPlayer
 	sfx.stream = (load(filename) as AudioStream)
 	sfx.play()
 

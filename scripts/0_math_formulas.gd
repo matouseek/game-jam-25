@@ -32,7 +32,7 @@ func _ready():
 	
 func show_problem(i : int):
 	var tween : Tween
-	GM.play_sfx(BOARD_SOUND_PATH)
+	GM.play_sfx(BOARD_SOUND_PATH,0)
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
@@ -43,7 +43,7 @@ func show_problem(i : int):
 		
 func show_result(i : int):
 	var tween : Tween
-	GM.play_sfx(BOARD_SOUND_PATH)
+	GM.play_sfx(BOARD_SOUND_PATH,0)
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)

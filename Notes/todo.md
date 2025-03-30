@@ -20,6 +20,8 @@ SEMI IMPORTANT:
 
 - [ ] fix cannon sounds with spash covering
 
+- [ ] fix sfx stuff
+
 ## Matous
 
 

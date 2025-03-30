@@ -4,9 +4,8 @@ class_name Bullet
 
 const PLUNGE_SOUND = "res://assets/sfx/plunge.wav"
 
-const INIT_SPEED_BASE = 29 # hero strength
-const GRAVITY = 0.45
-const POWER_SCALE = 2 # penalty for each weight increase
+const INIT_SPEED_BASE = 2000 # hero strength
+const POWER_SCALE = 90 # penalty for each weight increase
 
 var direction = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
@@ -30,18 +29,18 @@ func start_flying():
 func _process(delta : float):
 	if flying:
 		check_out_of_bounds_down()
-		move()
+		move(delta)
 
-func move():
+func move(delta):
 	if digit != 0: # special photon case
-		velocity.y += GRAVITY
-	position.x += velocity.x
-	position.y += velocity.y 
+		velocity.y += GM.GRAVITY * delta
+	position.x += velocity.x * delta
+	position.y += velocity.y * delta
 
 func check_out_of_bounds_down():
 	var height_offset = 20
 	if position.y > GM.WINDOW_HEIGHT + height_offset:
-		GM.play_sfx(PLUNGE_SOUND)
+		GM.play_sfx(PLUNGE_SOUND,1)
 		queue_free()
 
 func get_init_speed() -> float:

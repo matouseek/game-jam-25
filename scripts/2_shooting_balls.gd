@@ -5,6 +5,7 @@ const BULLET_ICON_PATH = "res://assets/shooting_balls/balls/ball"
 var bullet_scene = preload("res://scenes/minigames/shooting_balls/bullet.tscn")
 
 const CANNON_SOUND = "res://assets/sfx/fireworks.wav"
+const SPLASH_SOUND = "res://assets/sfx/splash.wav"
 
 # ONREADY STUFF
 @onready var cannon = $Cannon
@@ -104,6 +105,7 @@ func connect_to_targets():
 # sends signal to complete level if all targets destroyed
 func check_targets_destroyed():
 	target_count -= 1
+	GM.play_sfx(SPLASH_SOUND,2)
 	if target_count == 0:
 		GM.level_completed.emit()
 
@@ -126,7 +128,7 @@ func _input(event):
 # shoots the specified digit, the digit value controls the weight of the bullet
 func shoot():
 	if shot_timer.time_left == 0:
-		GM.play_sfx(CANNON_SOUND)
+		GM.play_sfx(CANNON_SOUND,0)
 		shot_timer.start()
 		var bullet : Bullet = bullet_scene.instantiate() as Bullet
 		bullet.position = cannon.position
