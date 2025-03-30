@@ -25,7 +25,7 @@ func _on_area_entered(area: Area2D) -> void:
 	await anime.animation_finished
 	anime.play("falling2")
 	scream.pitch_scale += randf_range(-0.1, 0.3)
-	scream.stream = load("res://assets/sfx/screaming_falling.mp3") as AudioStream
+	scream.stream = load("res://assets/sfx/screaming_falling.wav") as AudioStream
 	scream.play(randf_range(0.0, 0.3))
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(position.x, 1500), SACRIFICE_TIME)

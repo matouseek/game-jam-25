@@ -9,8 +9,8 @@ const MAX_STATE: int = 3
 @onready var CHANGE_PASSWORD : Label = $Control/ChangePasswordLabel
 @onready var PASSWD_INSTRUCT_2 : Label = $Control/PasswordInstructionsLabel2
 
-const WRONG_BUZZER_SOUND_PATH : String = "res://assets/sfx/buzzer.mp3"
-const SUCC_SOUND_PATH : String = "res://assets/sfx/succ_kaching.mp3"
+const WRONG_BUZZER_SOUND_PATH : String = "res://assets/sfx/buzzer.wav"
+const SUCC_SOUND_PATH : String = "res://assets/sfx/succ_kaching.wav"
 
 const TEXT_TWEEN_DURATION : float = 1
 const TIME_BEFORE_TWEEN : float = 1

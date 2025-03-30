@@ -6,11 +6,11 @@ extends Node2D
 @onready var BACK_PROBLEMS : Node = $Back/Problems
 @onready var BACK_RESULTS : Node = $Back/Results
 
-const BOARD_SOUND_PATH : String = "res://assets/sfx/board.mp3"
-const WASHING_SOUND_PATH : String = "res://assets/sfx/washing_short.mp3"
-const CROWD_CHEER_SOUND_PATH : String = "res://assets/sfx/crowd_cheer.mp3"
-const CROWD_BOO_SOUND_PATH : String = "res://assets/sfx/crowd_boo.mp3"
-const CROWD_GASP_SOUND_PATH : String = "res://assets/sfx/crowd_gasp.mp3"
+const BOARD_SOUND_PATH : String = "res://assets/sfx/board.wav"
+const WASHING_SOUND_PATH : String = "res://assets/sfx/washing_short.wav"
+const CROWD_CHEER_SOUND_PATH : String = "res://assets/sfx/crowd_cheer.wav"
+const CROWD_BOO_SOUND_PATH : String = "res://assets/sfx/crowd_boo.wav"
+const CROWD_GASP_SOUND_PATH : String = "res://assets/sfx/crowd_gasp.wav"
 
 const FADE_TIME = 2
 
