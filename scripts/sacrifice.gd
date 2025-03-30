@@ -3,6 +3,7 @@ extends Node2D
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
 const DIALOG_TIME : float = 0.5
+const SHIP_TIME : float = 8
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
 @onready var ship = $Prolog/Ship
@@ -37,7 +38,7 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(natives, "modulate:a", 1, DIALOG_TIME)
-	tween.tween_property(ship, "modulate:a", 1, DIALOG_TIME)
+	tween.tween_property(ship, "modulate:a", 1, SHIP_TIME)
 	
 	await tween.finished
 	
@@ -49,13 +50,13 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	
 	tween = get_tree().create_tween()
 	tween.tween_property(natives, "modulate:a", 1, DIALOG_TIME)
-	tween.tween_property(ship, "modulate:a", 0, DIALOG_TIME)
+	tween.tween_property(ship, "modulate:a", 0, SHIP_TIME)
 	
 	await tween.finished
 	
 	ship.text = ship_d[1]
 	
-	tween = get_tree().create_tween().tween_property(ship, "modulate:a", 1, DIALOG_TIME)
+	tween = get_tree().create_tween().tween_property(ship, "modulate:a", 1, SHIP_TIME)
 	
 	await tween.finished
 	hud.visible = true
@@ -63,9 +64,9 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	tween.tween_property(hud, "modulate:a", 1, 0.5)
 
 func ship_arrive(ship_sprite : Sprite2D, end_location : Node2D):
-	var ship_arrival_time := DIALOG_TIME
+	var ship_arrival_time := SHIP_TIME
 	
-	var tween : Tween = get_tree().create_tween()
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(ship_sprite, "position", end_location.position, ship_arrival_time)
 	
 	await tween.finished
