@@ -110,7 +110,7 @@ func check_targets_destroyed():
 		GM.level_completed.emit()
 
 func set_cannon_direction():
-	var dir = Input.get_axis("up","down")
+	var dir = Input.get_axis("left","right")
 	cannon.rotation += dir * CANNON_ROT_SPEED
 	limit_cannon_movement()
 
