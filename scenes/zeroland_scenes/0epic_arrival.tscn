@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://dru5kr3hnccsl"]
+[gd_scene load_steps=3 format=3 uid="uid://dru5kr3hnccsl"]
+
+[ext_resource type="Texture2D" uid="uid://cp5cmqu1s7vui" path="res://assets/zeroland/zeroland.png" id="1_8768o"]
+[ext_resource type="Script" path="res://scenes/zeroland_scenes/0_epic_arrival.gd" id="1_o6i88"]
 
 [node name="0EpicArrival" type="Node2D"]
+position = Vector2(960, 536)
+scale = Vector2(0.511555, 0.511555)
+script = ExtResource("1_o6i88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8768o")
+
+[node name="Camera2D" type="Camera2D" parent="."]

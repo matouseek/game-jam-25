@@ -3,7 +3,7 @@ extends CanvasLayer
 const PATH_TO_SCENES := "res://scenes/minigames/" 
 const SCENES := ["password.tscn", "sacrifice.tscn","2shooting_balls.tscn"] ## contains filenames for scenes in sequential order
 
-const ZEROLAND_SCENE = "res://scenes/zeroland_scenes/1docking.tscn"
+const ZEROLAND_SCENE = "res://scenes/zeroland_scenes/0epic_arrival.tscn"
 const MATH_FORMULAS_SCENE = "res://scenes/minigames/0math_formulas.tscn"
 const INTRO_SCENE := "res://scenes/cutscenes/intro.tscn"
 const END_EXPLOSION_SCENE := "res://scenes/cutscenes/end_scene.tscn"

@@ -20,8 +20,3 @@ func ride_ship(start_point,end_point):
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera,"position",end_point,duration)
 	await tween.finished
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
