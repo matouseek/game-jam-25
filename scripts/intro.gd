@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = true
-	MM.appear()
+	MM.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property($Camera2D, "position", Vector2(0,0), 1).set_trans(Tween.TRANS_CUBIC)
 	
