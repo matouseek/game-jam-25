@@ -62,11 +62,11 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	tween = get_tree().create_tween()
 	tween.tween_property(hud, "modulate:a", 1, 0.5)
 
-func ship_arrive(ship : Sprite2D, end_location : Node2D):
+func ship_arrive(ship_sprite : Sprite2D, end_location : Node2D):
 	var ship_arrival_time := DIALOG_TIME
 	
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(ship, "position", end_location.position, ship_arrival_time)
+	tween.tween_property(ship_sprite, "position", end_location.position, ship_arrival_time)
 	
 	await tween.finished
 	

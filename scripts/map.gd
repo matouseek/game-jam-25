@@ -38,6 +38,7 @@ func next_travel(index : int, start_ratio : float, end_ratio : float):
 
 # animate ship moving to the next location
 func move_ship_next():
+	$NextButton.disabled = true
 	if not GM.travelling_back:
 		await next_travel(GM.current_level,0.0,1.0)
 	else:

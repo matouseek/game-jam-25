@@ -48,6 +48,7 @@ func show_problem(i : int):
 func show_result(i : int):
 	var tween : Tween
 	GM.play_sfx(BOARD_SOUND_PATH)
+	disable_hud()
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
@@ -71,6 +72,7 @@ func hide_all(i : int):
 		tween.set_parallel()
 		
 	await tween.finished
+	enable_hud()
 	
 func play_cheer():
 	var cheer_len : float = (load(CROWD_CHEER_SOUND_PATH) as AudioStream).get_length()
@@ -86,7 +88,7 @@ func play_gasp():
 	var gasp_len : float = (load(CROWD_GASP_SOUND_PATH) as AudioStream).get_length()
 	GM.play_sfx(CROWD_GASP_SOUND_PATH)
 	await get_tree().create_timer(gasp_len).timeout
-
+		
 
 func evaluate_button_press(input : int):
 	if travelling_back && current_problem == results_back.size() - 1:
@@ -111,3 +113,8 @@ func evaluate_button_press(input : int):
 			await show_problem(current_problem)
 	else:
 		await play_boo()
+
+func disable_hud(): $Hud.process_mode = Node.PROCESS_MODE_DISABLED
+	
+
+func enable_hud(): $Hud.process_mode = Node.PROCESS_MODE_INHERIT
