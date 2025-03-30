@@ -35,6 +35,7 @@ var beam = load("res://assets/icon_red.svg")
 # TRAVELLING BACK INDICATOR
 var travelling_back : bool = false
 var arachnofobia : bool = false
+var is_playing : bool = false
 
 const STANDARD_ERROR_MESSAGE = "Posralo se to nekde"
 @onready var menu = $Menu
@@ -92,10 +93,13 @@ func fade_to_scene(scene : String) -> void:
 	fade.visible = false
 
 func menu_toggle() -> void:
-	if (get_tree().current_scene.name == "MainMenu"):
-			get_tree().current_scene.visible = !get_tree().current_scene.visible 
-	get_tree().paused = !menu.visible
-	menu.visible = !menu.visible
+	if (is_playing):
+		get_tree().paused = !menu.visible
+		menu.visible = !menu.visible
+	else:
+		MM.visible = menu.visible
+		menu.visible = !menu.visible
+	
 	
 	
 func _input(event: InputEvent) -> void:
@@ -123,6 +127,7 @@ func _on_music_finished() -> void:
 func play_sfx(filename : String):
     sfx.stream = (load(filename) as AudioStream)
     sfx.play()
+
 
 func _on_arach_mode_pressed() -> void:
 	arachnofobia = !arachnofobia

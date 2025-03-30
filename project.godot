@@ -17,6 +17,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GM="*res://scenes/game_manager.tscn"
+MM="*res://scenes/main_menu.tscn"
 
 [display]
 

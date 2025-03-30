@@ -1,21 +1,24 @@
 [gd_scene load_steps=2 format=3 uid="uid://vgv66j2pu6w6"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_fx4sk"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_31j16"]
 
-[node name="MainMenu" type="Node2D"]
-script = ExtResource("1_fx4sk")
+[node name="MainMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_31j16")
 
 [node name="Play" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 282.0
+offset_top = 63.0
+offset_right = 323.0
+offset_bottom = 94.0
 text = "Play"
 
-[node name="Audio" type="Button" parent="."]
-offset_left = 1.0
-offset_top = 35.0
-offset_right = 9.0
-offset_bottom = 43.0
-text = "Audio"
+[node name="Menu" type="Button" parent="."]
+offset_left = 281.0
+offset_top = 181.0
+offset_right = 334.0
+offset_bottom = 212.0
+text = "Menu"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
