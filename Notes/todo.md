@@ -2,26 +2,13 @@
 
 ## Together
 
-- [ ] add screenshakes and audio to password minigame
+- [ ] add screenshakes and audio to password minigame (V)
 
 IMPORTANT:
-- [ ] not solvable button text
-- [ ] zeroland scenes
-- [ ] normalize all sounds
+- [ ] not solvable button text (S)
+- [ ] zeroland scenes (A)
+- [ ] normalize all sounds (V)
 
 SEMI IMPORTANT:
-- [ ] sacrifice message when choosing not 0 or 0 to kill people on way back
-
-## Janek
-
-
-## Matous
-
-
-## Vladik
-
-- [ ] normalize all sounds
-
-## Stepan
-
-- [ ] draw the ship
+- [ ] sacrifice message when choosing not 0 or 0 to kill people on way back (A)
+- [ ] sacrifice falling using path2d and tween on path progression (J)
