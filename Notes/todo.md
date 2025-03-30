@@ -12,7 +12,11 @@ IMPORTANT:
 - [ ] hud not disappearing after click (A)
 
 BONUS:
+- [ ] stickman na sousi
 - [ ] arachnophobia mode
+- [ ] increase text level button size
+- [ ] remove current label from map
+- [ ] cannon change
 
 ## Draw
 
