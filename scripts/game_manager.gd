@@ -118,4 +118,5 @@ func _on_music_finished() -> void:
 	music.play()
 
 func play_sfx(filename : String):
-	sfx.stream = (load(filename) as AudioStream).play()
+	sfx.stream = (load(filename) as AudioStream)
+	sfx.play()

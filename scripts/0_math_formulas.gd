@@ -6,6 +6,8 @@ extends Node2D
 @onready var BACK_PROBLEMS : Node = $Back/Problems
 @onready var BACK_RESULTS : Node = $Back/Results
 
+const BOARD_SOUND_PATH : String = "res://assets/sfx/board.mp3"
+
 const FADE_TIME = 2
 
 var travelling_back : bool
@@ -30,6 +32,7 @@ func _ready():
 	
 func show_problem(i : int):
 	var tween : Tween
+	GM.play_sfx(BOARD_SOUND_PATH)
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
@@ -40,6 +43,7 @@ func show_problem(i : int):
 		
 func show_result(i : int):
 	var tween : Tween
+	GM.play_sfx(BOARD_SOUND_PATH)
 	if(travelling_back):
 		tween = get_tree().create_tween()
 		tween.tween_property(BACK_RESULTS.get_child(i) as Sprite2D, "modulate:a", 1, FADE_TIME)
