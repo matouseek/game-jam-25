@@ -13,7 +13,8 @@ const TEXT_TWEEN_DURATION : float = 1
 const TIME_BEFORE_TWEEN : float = 1
 
 var PASSWD_VALUE : String = "9999999999"
-
+var shake : bool = false
+const cam_pos = Vector2(960, 540)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Control/PasswordLineEdit.text_submitted.connect(change_global_state)
@@ -54,6 +55,7 @@ func uncover_label(state : int, text : String) -> void:
 			if (text != PASSWD_VALUE):
 				STATE -= 1
 				return
+			shaking()
 			end_minigame()
 		_:
 			print(GM.STANDARD_ERROR_MESSAGE + " se stavem " + str(state))
@@ -89,3 +91,20 @@ func rewrite_text_for_travelling_back():
 	- Make sure you are connected to the internet before submitting!"
 	
 	PASSWD_VALUE = "zero"
+	
+func shake_screen():
+	var order = 0.3
+	const max_shake = 5
+	const max_roll = 0.5
+	$Cam.rotation = max_roll * order * randfn(-1, 1)
+	$Cam.position = Vector2(cam_pos.x+randfn(-1,1.2)*max_shake*order, cam_pos.y+randfn(-1,1.2)*max_shake*order)
+	
+func shaking():
+	shake = true
+	var tt = get_tree().create_timer(0.3)
+	await tt.timeout
+	shake = false
+	
+func _process(delta: float) -> void:
+	if shake: shake_screen()
+	else: $Cam.position = cam_pos
