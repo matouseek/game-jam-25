@@ -4,6 +4,7 @@
 
 IMPORTANT:
 - [ ] first build
+- [ ] fix bug when spamming math formulas (M)
 - [ ] not solvable button text (S)
 - [ ] zeroland scenes (S)
 - [ ] normalize all sounds (V)
