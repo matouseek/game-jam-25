@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbsbeofqmq18r"]
+[gd_scene load_steps=15 format=3 uid="uid://dbsbeofqmq18r"]
 
 [ext_resource type="Texture2D" uid="uid://qomxh5pam2h" path="res://assets/intro/sky.png" id="1_60hn2"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_v8df2"]
@@ -6,10 +6,14 @@
 [ext_resource type="Script" path="res://scenes/cutscenes/camera_2d.gd" id="2_ys5jr"]
 [ext_resource type="Texture2D" uid="uid://cc8olew1dxxwc" path="res://assets/intro/clouds.png" id="3_exyhn"]
 [ext_resource type="Texture2D" uid="uid://d0d4sk4q5ear7" path="res://assets/intro/hill_1.png" id="3_yu7gc"]
-[ext_resource type="Texture2D" uid="uid://d2oichtnwod01" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
+[ext_resource type="Texture2D" uid="uid://dral6ouvny2su" path="res://assets/intro/colosseum.png" id="4_vwd4l"]
 [ext_resource type="Texture2D" uid="uid://dma6qc1qyelr8" path="res://assets/intro/small_house.png" id="6_6ngc5"]
 [ext_resource type="Texture2D" uid="uid://cyuej4sdox75e" path="res://assets/intro/houses_background.png" id="6_y0awf"]
 [ext_resource type="Texture2D" uid="uid://2u6g7d4gsf06" path="res://assets/intro/big_house.png" id="7_wrrcc"]
+[ext_resource type="Texture2D" uid="uid://x4e2tjghinod" path="res://assets/intro/crowd/crowd3.png" id="10_6macb"]
+[ext_resource type="Texture2D" uid="uid://bjgxt8xe1cywi" path="res://assets/intro/crowd/crowd2.png" id="11_u47wv"]
+[ext_resource type="Texture2D" uid="uid://qetul8qn8aay" path="res://assets/intro/crowd/crowd1.png" id="12_u8qkm"]
+[ext_resource type="Texture2D" uid="uid://dn5fbp6fiypmo" path="res://assets/intro/crowd/crowd0.png" id="13_bm3a3"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_v8df2")
@@ -81,6 +85,37 @@ scroll_scale = Vector2(0, 0.3)
 [node name="Colosseum" type="Sprite2D" parent="Parallax/Foreground"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_vwd4l")
+
+[node name="Crowd" type="Node2D" parent="Parallax"]
+
+[node name="CrowdBack" type="Parallax2D" parent="Parallax/Crowd"]
+scroll_scale = Vector2(0, 0.35)
+
+[node name="Crowd3" type="Sprite2D" parent="Parallax/Crowd/CrowdBack"]
+position = Vector2(0, 144)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_6macb")
+
+[node name="Crowd2" type="Sprite2D" parent="Parallax/Crowd/CrowdBack"]
+position = Vector2(0, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_u47wv")
+
+[node name="CrowdMiddle" type="Parallax2D" parent="Parallax/Crowd"]
+scroll_scale = Vector2(0, 0.4)
+
+[node name="Crowd1" type="Sprite2D" parent="Parallax/Crowd/CrowdMiddle"]
+position = Vector2(0, 10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_u8qkm")
+
+[node name="CrowdFront" type="Parallax2D" parent="Parallax/Crowd"]
+scroll_scale = Vector2(0, 0.45)
+
+[node name="Crowd0" type="Sprite2D" parent="Parallax/Crowd/CrowdFront"]
+position = Vector2(0, -40)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_bm3a3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -2700)
