@@ -4,8 +4,8 @@ class_name Bullet
 
 const PLUNGE_SOUND = "res://assets/sfx/plunge.wav"
 
-const INIT_SPEED_BASE = 2000 # hero strength
-const POWER_SCALE = 90 # penalty for each weight increase
+const INIT_SPEED_BASE = 1800 # hero strength
+const POWER_SCALE = 100 # penalty for each weight increase
 
 var direction = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
