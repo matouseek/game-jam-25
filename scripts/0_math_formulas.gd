@@ -7,6 +7,10 @@ extends Node2D
 @onready var BACK_RESULTS : Node = $Back/Results
 
 const BOARD_SOUND_PATH : String = "res://assets/sfx/board.mp3"
+const WASHING_SOUND_PATH : String = "res://assets/sfx/washing_short.mp3"
+const CROWD_CHEER_SOUND_PATH : String = "res://assets/sfx/crowd_cheer.mp3"
+const CROWD_BOO_SOUND_PATH : String = "res://assets/sfx/crowd_boo.mp3"
+const CROWD_GASP_SOUND_PATH : String = "res://assets/sfx/crowd_gasp.mp3"
 
 const FADE_TIME = 2
 
@@ -56,6 +60,7 @@ func show_result(i : int):
 		
 func hide_all(i : int):
 	var tween : Tween
+	GM.play_sfx(WASHING_SOUND_PATH)
 	if travelling_back:
 		tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(BACK_PROBLEMS.get_child(i) as Sprite2D, "modulate:a", 0, FADE_TIME)
@@ -68,6 +73,21 @@ func hide_all(i : int):
 		
 	await tween.finished
 	enable_hud()
+	
+func play_cheer():
+	var cheer_len : float = (load(CROWD_CHEER_SOUND_PATH) as AudioStream).get_length()
+	GM.play_sfx(CROWD_CHEER_SOUND_PATH)
+	await get_tree().create_timer(cheer_len).timeout
+	
+func play_boo():
+	var boo_len : float = (load(CROWD_BOO_SOUND_PATH) as AudioStream).get_length()
+	GM.play_sfx(CROWD_BOO_SOUND_PATH)
+	await get_tree().create_timer(boo_len).timeout
+	
+func play_gasp():
+	var gasp_len : float = (load(CROWD_GASP_SOUND_PATH) as AudioStream).get_length()
+	GM.play_sfx(CROWD_GASP_SOUND_PATH)
+	await get_tree().create_timer(gasp_len).timeout
 		
 
 func evaluate_button_press(input : int):
@@ -84,11 +104,15 @@ func evaluate_button_press(input : int):
 	if input == result:
 		current_problem += 1
 		if current_problem >= results.size():
+			await play_gasp()
 			GM.level_completed.emit()
 		else:
 			await show_result(current_problem - 1)
+			await play_cheer()
 			await hide_all(current_problem - 1)
 			await show_problem(current_problem)
+	else:
+		await play_boo()
 
 func disable_hud(): $Hud.process_mode = Node.PROCESS_MODE_DISABLED
 	
