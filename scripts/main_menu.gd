@@ -1,10 +1,17 @@
-extends Node2D
+extends CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func appear():
+	visible = true
+	GM.visible = false
 
-func _on_play_pressed() -> void: GM.fade_to_scene(GM.MATH_FORMULAS_SCENE)
+func disappear():
+	visible = false
+	get_tree().paused = false
 
-func _on_audio_pressed() -> void:
+
+func _on_play_pressed() -> void: disappear()
+
+
+func _on_menu_pressed() -> void:
+	visible = false
 	GM.menu_toggle()
