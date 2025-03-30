@@ -34,18 +34,20 @@ var beam = load("res://assets/icon_red.svg")
 
 # TRAVELLING BACK INDICATOR
 var travelling_back : bool = false
+var arachnofobia : bool = false
 
 const STANDARD_ERROR_MESSAGE = "Posralo se to nekde"
-
+@onready var menu = $Menu
 # Called when the node enters the scene tree for the first FADE_TIME.
 func _ready() -> void:
+	print(arachnofobia)
 	#setup_cursor_hover_style() TODO: uncomment to set custom cursor
 	$Fade.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
-	$AudioMenu/UnclickableArea.size = Vector2(WINDOW_WIDTH, WINDOW_HEIGHT)
+	$Menu/UnclickableArea.size = Vector2(WINDOW_WIDTH+80, WINDOW_HEIGHT)
 	level_completed.connect(switch_to_map)
 	map_completed.connect(switch_to_level)
-	music.volume_db = linear_to_db($AudioMenu/MusicVolume.value)
-	sfx.volume_db = linear_to_db($AudioMenu/SFXVolume.value)
+	music.volume_db = linear_to_db($Menu/MusicVolume.value)
+	sfx.volume_db = linear_to_db($Menu/SFXVolume.value)
 	play_music('res://assets/music/skibidi.mp3')
 	
 
@@ -91,8 +93,9 @@ func fade_to_scene(scene : String) -> void:
 
 func menu_toggle() -> void:
 	if (get_tree().current_scene.name == "MainMenu"):
-			get_tree().current_scene.visible = !get_tree().current_scene.visible
-	$AudioMenu.visible = !$AudioMenu.visible
+			get_tree().current_scene.visible = !get_tree().current_scene.visible 
+	get_tree().paused = !menu.visible
+	menu.visible = !menu.visible
 	
 	
 func _input(event: InputEvent) -> void:
@@ -119,3 +122,8 @@ func _on_music_finished() -> void:
 
 func play_sfx(filename : String):
 	sfx.stream = (load(filename) as AudioStream).play()
+
+
+func _on_arach_mode_pressed() -> void:
+	arachnofobia = !arachnofobia
+	print(arachnofobia)
