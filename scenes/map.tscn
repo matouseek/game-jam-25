@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bi5snt7xdwt5f"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_xhs4v"]
-[ext_resource type="Texture2D" uid="uid://dh8hu6bj6s4jh" path="res://assets/map/map.png" id="2_onvq3"]
+[ext_resource type="Texture2D" uid="uid://dm82ipum0aqv3" path="res://assets/map/map.png" id="2_onvq3"]
 [ext_resource type="Texture2D" uid="uid://urrf1pif5xgn" path="res://assets/icon_red.svg" id="2_swisp"]
 
 [sub_resource type="Curve2D" id="Curve2D_erf43"]
@@ -35,16 +35,6 @@ script = ExtResource("1_xhs4v")
 position = Vector2(954, 541)
 scale = Vector2(0.504365, 0.504365)
 texture = ExtResource("2_onvq3")
-
-[node name="CurrentLevel" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 918.0
-offset_top = 105.0
-offset_right = 1105.0
-offset_bottom = 174.0
-scale = Vector2(1.00123, 1)
-theme_override_font_sizes/font_size = 50
-text = "Current"
 
 [node name="LevelIcons" type="Control" parent="."]
 layout_mode = 3
@@ -85,12 +75,15 @@ offset_bottom = 290.08
 texture = ExtResource("2_swisp")
 
 [node name="NextButton" type="Button" parent="."]
-offset_left = 1755.0
-offset_top = 993.0
-offset_right = 1840.0
-offset_bottom = 1024.0
+offset_left = 844.0
+offset_top = 864.0
+offset_right = 1177.0
+offset_bottom = 960.0
 scale = Vector2(1.00782, 1.00461)
-text = "Next level"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Next Level"
 
 [node name="Ship" type="Sprite2D" parent="."]
 
