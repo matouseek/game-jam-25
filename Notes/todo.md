@@ -5,10 +5,14 @@
 IMPORTANT:
 - [ ] zeroland scenes (S)
 - [ ] adjust text size (A)
+- [ ] change music (A)
 - [ ] roman numerals on boards (S)
 - [ ] not solvable button text (S)
 - [ ] improve end screen (A)
 - [ ] hud not disappearing after click (A)
+
+BONUS:
+- [ ] arachnophobia mode
 
 ## Draw
 
