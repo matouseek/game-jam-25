@@ -1,73 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbfjxyang73w2"]
 
 [ext_resource type="Script" path="res://scripts/sacrifice.gd" id="1_3ju5s"]
-[ext_resource type="Texture2D" uid="uid://p021q2c51l5p" path="res://assets/icon.svg" id="2_deso3"]
+[ext_resource type="Texture2D" uid="uid://bsdbdxui7vbmw" path="res://assets/ship/ship.png" id="3_7bpx7"]
 [ext_resource type="PackedScene" uid="uid://ejh0pen6n247" path="res://scenes/person.tscn" id="3_ix5le"]
 [ext_resource type="PackedScene" uid="uid://dip8t8q4mla4o" path="res://scenes/hud.tscn" id="3_xdwaq"]
 [ext_resource type="Texture2D" uid="uid://cw8af07bdwwv3" path="res://assets/cliff/CliffUp.jpg" id="4_74udx"]
 [ext_resource type="Texture2D" uid="uid://bp46irirym8dm" path="res://assets/cliff/CliffDown.jpg" id="4_y132j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvg0h"]
-size = Vector2(626, 587)
+size = Vector2(194, 1001)
 
 [node name="Sacrifice" type="Node2D"]
 script = ExtResource("1_3ju5s")
-
-[node name="Falling" type="Node2D" parent="."]
-visible = false
-
-[node name="Background1" type="TextureRect" parent="Falling"]
-offset_right = 3840.0
-offset_bottom = 2160.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_74udx")
-
-[node name="People" type="Node2D" parent="Falling"]
-
-[node name="Person" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(864, 327)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person2" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(757, 354)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person3" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(656, 381)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person4" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(570, 379)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person5" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(475, 387)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person6" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(388, 383)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person7" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(293, 371)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person8" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(213, 393)
-scale = Vector2(0.3, 0.3)
-
-[node name="Person9" parent="Falling/People" instance=ExtResource("3_ix5le")]
-position = Vector2(109, 422)
-scale = Vector2(0.3, 0.3)
-
-[node name="CliffEnd" type="Area2D" parent="Falling"]
-position = Vector2(982, 340)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/CliffEnd"]
-position = Vector2(224, -32.5)
-shape = SubResource("RectangleShape2D_qvg0h")
 
 [node name="Prolog" type="Node2D" parent="."]
 
@@ -76,6 +20,12 @@ offset_right = 3840.0
 offset_bottom = 2160.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_y132j")
+
+[node name="ShipSprite" type="Sprite2D" parent="Prolog"]
+modulate = Color(0.605752, 0.512041, 0.398449, 1)
+position = Vector2(3000, 750)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_7bpx7")
 
 [node name="Hud" parent="Prolog" instance=ExtResource("3_xdwaq")]
 modulate = Color(1, 1, 1, 0)
@@ -96,10 +46,61 @@ offset_right = 226.0
 offset_bottom = 98.0
 text = "RANDOM SHIP TEXT"
 
-[node name="ShipSprite" type="Sprite2D" parent="Prolog"]
-position = Vector2(1958, 1022)
-scale = Vector2(-5.39783, 0.583028)
-texture = ExtResource("2_deso3")
-
 [node name="ShipEndPlace" type="Marker2D" parent="Prolog"]
-position = Vector2(1308, 1032)
+position = Vector2(1400, 750)
+
+[node name="Falling" type="Node2D" parent="."]
+visible = false
+
+[node name="Background1" type="TextureRect" parent="Falling"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_74udx")
+
+[node name="People" type="Node2D" parent="Falling"]
+
+[node name="Person" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(289, 509)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person2" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(734, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person3" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(654, 500)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person4" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(571, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person5" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(495, 494)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person6" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(419, 517)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person7" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(340, 489)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person8" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(266, 521)
+scale = Vector2(0.2, 0.2)
+
+[node name="Person9" parent="Falling/People" instance=ExtResource("3_ix5le")]
+position = Vector2(188, 513)
+scale = Vector2(0.2, 0.2)
+
+[node name="CliffEnd" type="Area2D" parent="Falling"]
+position = Vector2(982, 340)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling/CliffEnd"]
+position = Vector2(4, 172.5)
+shape = SubResource("RectangleShape2D_qvg0h")

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="res://scenes/cutscenes/intro.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
@@ -63,3 +64,5 @@ left={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true

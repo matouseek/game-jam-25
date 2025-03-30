@@ -2,67 +2,37 @@
 
 ## Together
 
-- [x] create overall architecture
-- [x] create hud
-  - for minigames
-  - has different layouts
-  - sends parametrized signal
-  - only the hud has to emit based on the concrete buttons 
-- [x] buttons pressed instead of button down
-
-- [x] tween math problems
-  - when correct writing new 
-
-- [ ] add screenshakes and audio to password minigame
-
-- [ ] add sounds
-
-- [ ] find cannon sounds
-
 IMPORTANT:
-- [ ] not solvable button text
+- [ ] first build
+- [ ] fix bug when spamming math formulas (M)
+- [ ] menu
+- [ ] adjust text size
+- [ ] zeroland cinematic
+- [ ] not solvable button text (S)
+- [ ] zeroland scenes (S)
+- [ ] normalize all sounds (V)
+- [ ] hud problem (A)
+- [ ] roman numerals on boards (S)
+
+SEMI IMPORTANT:
+- [ ] no guy in from of blackboard
+- [ ] sacrifice message when choosing not 0 or 0 to kill people on way back (A)
+- [ ] sacrifice falling using path2d and tween on path progression (J)
+- [ ] atomic explosion sound (j)
+
+## Draw
+
+- [ ] export map picture
+
+- [ ] cannon minigame background
 - [ ] zeroland scenes
-- [ ] doubleclick on next level moves current level by two!!!
-
-## Janek
-
-- [x] shooting balls minigame
-- [x] prepare icons for texture buttons (1..9 and N)
-
-- shooting balls
-  - make shots load with corresponding picture
-  - create targets
-  - [x] implement travelling back
-  - [x] add shooting with space label
-  - [x] implement delay before shots
-  - [x] move cannon by arrows
-  - [x] add moving enemies up and down
-
-- [x] bigger probability of lighter balls
-
-- [x] ending scene dummies
-
-- [x] test comics like clip switching
-  - zeroland scene
-
-## Matous
-
-- [x] password minigame
-
-## Vladik
-
-- [x] fade-in/out
-  -  minigame -> map OR map -> minigame
-
-- [x] change buttons to texture buttons
-- [x] make hud reacting on hover above button
-
-- [ ] add sounds
-
-## Stepan
-
-- [x] create storyboard
-
-- [x] create button boards
-
-- [ ] draw the ship
+  - zeroland island from far
+  - parallaxing with ship and wharf
+  - worhipping zero and getting the table
+  - parallaxing back
+- [ ] pirate cannon
+- [ ] map
+- [ ] map placeholders
+- [ ] final scene with 0/0
+- [ ] password minigame background
+- [ ] roman numerals on boards (S)

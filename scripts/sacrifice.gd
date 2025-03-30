@@ -2,7 +2,8 @@ extends Node2D
 
 var people : Array = []
 const SACRIFICE_TIME : float = 1.5
-const DIALOG_TIME : float = 0.5
+const DIALOG_TIME : float = 2
+const SHIP_TIME : float = 8
 @onready var hud = $Prolog/Hud
 @onready var natives = $Prolog/Natives
 @onready var ship = $Prolog/Ship
@@ -12,23 +13,28 @@ const DIALOG_TIME : float = 0.5
 var natives_dialog : Array[String] = ["Spirits be with you travelers...", "Our gods crave blood, how many of our people shall we sacrifice?"]
 var ship_dialog : Array[String] = ["Greetings people of the wild! What do you wish from us?", "Well..."]
 
+var travell_back_natives_zero_response : String = "Hold up... how did you do that"
+var travell_back_ship_non_zero_response : String = "You could've saved them, we know the concept of zero... asshole"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GM.travelling_back = true
 	people = $Falling/People.get_children()
 	hud.digit_pressed.connect(sacrifice)
 	hud.visible = false
-	if (GM.travelling_back): travel_back()
+	if GM.travelling_back:
+		travel_back()
 	else: first_time()
 
 func first_time():
-	ship_arrive(ship_sprite, ship_end_place)
+	await ship_arrive(ship_sprite, ship_end_place)
 	play_dialog(natives_dialog, ship_dialog)
 
 func travel_back():
 	hud.current_layout = hud.Layout.ZERO
 	hud.setup(hud.layouts[hud.current_layout])
 	
-	ship_arrive(ship_sprite, ship_end_place)
+	await ship_arrive(ship_sprite, ship_end_place)
 	play_dialog(natives_dialog, ship_dialog)
 
 func play_dialog(natives_d : Array[String], ship_d : Array[String]):
@@ -62,11 +68,11 @@ func play_dialog(natives_d : Array[String], ship_d : Array[String]):
 	tween = get_tree().create_tween()
 	tween.tween_property(hud, "modulate:a", 1, 0.5)
 
-func ship_arrive(ship : Sprite2D, end_location : Node2D):
-	var ship_arrival_time := DIALOG_TIME
+func ship_arrive(ship_sprite : Sprite2D, end_location : Node2D):
+	var ship_arrival_time := SHIP_TIME
 	
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(ship, "position", end_location.position, ship_arrival_time)
+	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(ship_sprite, "position", end_location.position, ship_arrival_time)
 	
 	await tween.finished
 	
@@ -85,7 +91,21 @@ func ship_arrive(ship : Sprite2D, end_location : Node2D):
 		#sprite.position.y = y
 
 func sacrifice(to_sacrifice : int):
+	disable_hud()
 	if to_sacrifice >= 1:
+		if GM.travelling_back:
+				var tween = get_tree().create_tween()
+				tween.tween_property(ship, "modulate:a", 0, DIALOG_TIME)
+				
+				await tween.finished
+				
+				ship.text = travell_back_ship_non_zero_response
+				
+				tween = get_tree().create_tween()
+				tween.tween_property(ship, "modulate:a", 1, DIALOG_TIME)
+				
+				await get_tree().create_timer(3).timeout
+				
 		$Prolog.visible = false
 		$Falling.visible = true
 		hud.process_mode = Node.PROCESS_MODE_DISABLED
@@ -94,8 +114,21 @@ func sacrifice(to_sacrifice : int):
 		hud_tween.tween_callback(func(): hud.visible = false)
 		for i in range(to_sacrifice):
 			var sprite = people[i] as Person
-			sprite.run(150)
-			await  get_tree().create_timer(0.05).timeout
+			sprite.run(300)
 		await get_tree().create_timer(5).timeout
-	GM.level_completed.emit()
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(natives, "modulate:a", 0, DIALOG_TIME)
 		
+		await tween.finished
+		
+		natives.text = travell_back_natives_zero_response
+		
+		tween = get_tree().create_tween()
+		tween.tween_property(natives, "modulate:a", 1, DIALOG_TIME)
+		
+		await get_tree().create_timer(3).timeout
+	GM.level_completed.emit()
+	
+	
+func disable_hud(): $Prolog/Hud.process_mode = Node.PROCESS_MODE_DISABLED

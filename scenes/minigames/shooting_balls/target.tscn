@@ -10,15 +10,15 @@
 scale = Vector2(0.606164, 0.606164)
 script = ExtResource("1_mj5kt")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Web2" type="Sprite2D" parent="."]
+position = Vector2(0, -1558.98)
+texture = ExtResource("3_whela")
+
+[node name="Web1" type="Sprite2D" parent="."]
 position = Vector2(-2, -496)
 texture = ExtResource("3_whela")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
-position = Vector2(2, -1062.98)
-texture = ExtResource("3_whela")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Spider" type="Sprite2D" parent="."]
 scale = Vector2(0.332546, 0.332546)
 texture = ExtResource("1_l2jwt")
 
